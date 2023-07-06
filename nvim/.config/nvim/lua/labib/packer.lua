@@ -70,6 +70,9 @@ return require('packer').startup(
             -- use("github/copilot.vim")
             -- use("eandrju/cellular-automaton.nvim")
             -- use("laytan/cloak.nvim")
+            --
+
+            use("jose-elias-alvarez/typescript.nvim")
 
     end
 )

@@ -104,7 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vcp="nvim -S ~/cp"
 alias mkdir="mkdir -p"
-alias gs="git status"
+# alias gs="git status"
 
 eval "$(lua ~/.scripts/z.lua --init zsh)"
 
