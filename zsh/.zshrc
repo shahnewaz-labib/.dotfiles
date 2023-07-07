@@ -6,6 +6,7 @@ export PATH=$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -73,7 +74,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions archlinux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,7 +105,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vcp="nvim -S ~/cp"
 alias mkdir="mkdir -p"
+alias cat="bat"
 # alias gs="git status"
+
 
 eval "$(lua ~/.scripts/z.lua --init zsh)"
 
