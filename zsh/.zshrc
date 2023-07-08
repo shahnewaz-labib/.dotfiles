@@ -105,7 +105,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vcp="nvim -S ~/cp"
 alias mkdir="mkdir -p"
-alias cat="bat"
+alias ka="killall"
+alias copyfile="xclip -sel clip <"
+# alias cat="bat"
 # alias gs="git status"
 
 
