@@ -26,29 +26,17 @@
 
 ################## CUSTOM ##################
 
+# browser
+bindsym $mod+b exec brave
+
 # autostart
 exec --no-startup-id xset r rate 300 30
-
-# Connect to DSL
-# bindsym $mod+g exec --no-startup-id nmcli device connect enp0s20f0u1c2
-# bindsym $mod+u exec --no-startup-id nmcli device disconnect enp0s20f0u1c2
-bindsym $mod+g exec --no-startup-id nmcli c up IUT
-bindsym $mod+u exec --no-startup-id nmcli c down IUT
-
-
-# Connect to RMX2
-bindsym $mod+o exec --no-startup-d nmcli connection up RMX2
-bindsym $mod+p exec --no-startup-d nmcli connection down RMX2
-
-
 
 # Polybar
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh example
 
 # Autostart picom
 exec --no-startup-id picom -b
-
-bindsym $mod+Shift+w exec python ~/bin/wall.py
 
 # Monitor / Display settings
 exec --no-startup-id ~/.config/i3/autostart.sh
@@ -293,20 +281,24 @@ mode "$mode_system" {
 # solarized-powerline
 # wal-powerline
 
- bar {
-    font pango:JetBrainsMonoNerdFont 10
-    position top
-    #tray_output none
-    status_command ~/.config/bumblebee-status/bumblebee-status \
-    -t gruvbox-powerline-light \
-    -m memory date time brightness pasink pasource battery \
-    -p \
-    date.format="%a, %d %b %Y" \
-    time.format="%I:%M %p" \
-    memory.format="{used}" \
-    # redshift.location="manual" redshift.lat="24.1" redshift.lon="90.41" \
-    # network_traffic.interval=2 \
-    cpu.interval=2 \
-    memory.interval=2
+# Toggle bar on/off
+bindsym $mod+Shift+b --release bar mode toggle
 
- }
+bar {
+   mode hide
+   modifier none
+   font pango:JetBrainsMonoNerdFont 10
+   position top
+   #tray_output none
+   status_command ~/.config/bumblebee-status/bumblebee-status \
+   -t gruvbox-powerline-light \
+   -m memory date time brightness pasink pasource battery \
+   -p \
+   date.format="%a, %d %b %Y" \
+   time.format="%I:%M %p" \
+   memory.format="{used}" \
+   # redshift.location="manual" redshift.lat="24.1" redshift.lon="90.41" \
+   # network_traffic.interval=2 \
+   cpu.interval=2 \
+   memory.interval=2
+}

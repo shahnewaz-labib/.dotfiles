@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vcp="nvim -S ~/cp"
+alias vcp="cd ~/codes/cp/ && nvim -S ~/codes/cp/cp"
 alias mkdir="mkdir -p"
 alias ka="killall"
 alias copyfile="xclip -sel clip <"
@@ -116,3 +116,5 @@ eval "$(lua ~/.scripts/z.lua --init zsh)"
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then 
   exec startx &>/dev/null 
 fi
+
+pfetch
