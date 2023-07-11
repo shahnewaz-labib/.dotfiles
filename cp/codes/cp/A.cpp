@@ -11,34 +11,29 @@
 
 using namespace std;
 
-set<int> ans;
-
 void solve() {
-    int n;
-    cin >> n;
+    pair<int, int> a, b, c;
+    cin >> a.first >> a.second;
+    cin >> b.first >> b.second;
+    cin >> c.first >> c.second;
 
-    if (ans.find(n) != ans.end())
-        cout << "YES\n";
-    else
-        cout << "NO\n";
+    int ans = 0;
+    if ((a.first > b.first && a.first > c.first)) {
+        ans += abs(a.first - max(b.first, c.first));
+    } else if (a.first < b.first && a.first < c.first) {
+        ans += abs(a.first - min(b.first, c.first));
+    }
+    if ((a.second > b.second && a.second > c.second)) {
+        ans += abs(a.second - max(b.second, c.second));
+    } else if (a.second < b.second && a.second < c.second) {
+        ans += abs(a.second - min(b.second, c.second));
+    }
+
+    cout << ++ans << "\n";
 }
 
 signed main() {
     fastio int t;
-    for (int k = 2; k <= 1000; k++) {
-        int val = 1 + k;
-        int p = k * k;
-
-        for (int cnt = 2; cnt <= 20; cnt++) {
-            val += p;
-
-            if (val > 1e6) break;
-
-            ans.insert(val);
-            p *= k;
-        }
-    }
-
     t = 1;
     cin >> t;
     for (int tc = 1; tc <= t; tc++) {
