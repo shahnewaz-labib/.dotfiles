@@ -1,9 +1,15 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+-- keep the block selected and retain correct indentation
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- keep the block selected while indenting
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
+
+-- keep cursor fixed
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -13,9 +19,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- copy from clipboard to input file
 vim.keymap.set("n", "<F4>", "<cmd>silent !xclip -o -sel clip > ~/codes/X/in<CR>")
 vim.keymap.set("n", "<F6>", "<cmd>!g++ % -D LOCAL -std=c++17 -o ~/codes/X/program && (timeout 5 ~/codes/X/program < ~/codes/X/in) >  ~/codes/X/out<CR>")
-
--- delete file content
-
 
 -- copy template to current file
 vim.keymap.set("n", "<leader>t", ":!cp ~/codes/cp/template.cpp %<CR><CR>")
