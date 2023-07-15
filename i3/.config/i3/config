@@ -284,7 +284,7 @@ bindsym $mod+Shift+b --release bar mode toggle
 bar {
    mode hide
    modifier none
-   font pango:JetBrainsMonoNerdFont 10
+   font pango:MesloLGL 10
    position top
    #tray_output none
    status_command ~/.config/bumblebee-status/bumblebee-status \
