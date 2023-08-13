@@ -1,11 +1,15 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.scripts/:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export BROWSER=brave
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -103,10 +107,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ip="ip --color=auto"
 alias vcp="cd ~/codes/cp/ && nvim -S ~/codes/cp/cp"
 alias mkdir="mkdir -p"
 alias ka="killall"
+alias kaq="killall qbittorrent"
 alias copyfile="xclip -sel clip <"
+alias showip="curl -s https://api.ipify.org"
+alias topdf="soffice --headless --convert-to pdf"
 # alias cat="bat"
 # alias gs="git status"
 

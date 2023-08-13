@@ -1,52 +1,42 @@
+#include <linux/limits.h>
 #include "bits/stdc++.h"
+#define fastio ios_base::sync_with_stdio(0), cin.tie(nullptr);
+#define int LL
+#define LL long long
+
+#ifdef LOCAL
+#include "dbg.h"
+#else
+#define dbg(...)
+#endif
 
 using namespace std;
 
-int calculatePower(const vector<int>& villagers, int start, int end) {
-    int power = 0;
-    for (int i = start; i < end; i++) {
-        power += abs(villagers[i] - villagers[i + 1]);
-    }
-    return power;
-}
+void solve() {
+    string s;
+    cin >> s;
 
-int minimizePower(int n, int k, const vector<int>& villagers) {
-    vector<vector<int>> dp(k + 1, vector<int>(n + 1, INT_MAX));
+    s = "0" + s;
 
-    // Base case: If there is only one group, the power is 0
-    for (int i = 1; i <= n; i++) {
-        dp[1][i] = 0;
-    }
+    int n = s.size();
 
-    for (int i = 2; i <= k; i++) {
-        for (int j = i; j <= n; j++) {
-            for (int x = i - 1; x < j; x++) {
-                int power = calculatePower(villagers, x, j);
-                dp[i][j] = min(dp[i][j], dp[i - 1][x] + power);
-            }
+    int e = -1, f = -1;
+    for (int i = 1; i < n; i++) {
+        if (s[i] >= '5' && e == -1) {
+            e = i;
         }
     }
 
-    return dp[k][n];
+    for (int i = e; i < n; i++) s[i] = '0';
+    cout << s << "\n";
 }
 
-int main() {
-    int t;
+signed main() {
+    fastio int t;
+    t = 1;
     cin >> t;
-
-    while (t--) {
-        int n, k;
-        cin >> n >> k;
-
-        vector<int> villagers(n);
-        for (int i = 0; i < n; i++) {
-            cin >> villagers[i];
-        }
-
-        int result = minimizePower(n, k, villagers);
-        cout << result << endl;
+    for (int tc = 1; tc <= t; tc++) {
+        /* printf("Case no: %d\n", tc); */
+        solve();
     }
-
-    return 0;
 }
-
