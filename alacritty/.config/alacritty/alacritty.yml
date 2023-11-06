@@ -1,6 +1,9 @@
 font:
   normal:
-    family: MesloLGMNerdFontMono
+    # family: MesloLGMNerdFontMono
+    family: FiraCode
+    # family: Meslo
+    family: MesloLGS Nerd Font
 
 
   size: 12.0
@@ -9,3 +12,6 @@ shell:
   program: /usr/bin/zsh
   args:
     - --login
+
+window:
+  opacity: 0.5

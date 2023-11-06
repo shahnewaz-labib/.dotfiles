@@ -18,11 +18,18 @@ return require('packer').startup(
             'rose-pine/neovim',
             as = 'rose-pine',
             config = function()
-                vim.cmd('colorscheme rose-pine')
+                vim.cmd('colorscheme gruvbox')
             end
         })
 
-        use 'morhetz/gruvbox'
+        use({
+            'morhetz/gruvbox',
+            as = 'gruvbox',
+            config = function()
+                vim.cmd('colorscheme gruvbox')
+            end
+        })
+
         use 'tpope/vim-commentary'
 
         use {

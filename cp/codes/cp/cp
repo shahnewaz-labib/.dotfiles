@@ -13,12 +13,12 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +28 A.cpp
-badd +0 B.cpp
-badd +0 C.cpp
-badd +0 template.cpp
-badd +0 ../X/in
-badd +0 ../X/out
+badd +1 A.cpp
+badd +1 B.cpp
+badd +1 C.cpp
+badd +1 template.cpp
+badd +1 ../X/in
+badd +1 ../X/out
 argglobal
 %argdel
 $argadd A.cpp
@@ -51,11 +51,11 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 84 + 68) / 136)
-exe '2resize ' . ((&lines * 13 + 15) / 31)
-exe 'vert 2resize ' . ((&columns * 51 + 68) / 136)
-exe '3resize ' . ((&lines * 14 + 15) / 31)
-exe 'vert 3resize ' . ((&columns * 51 + 68) / 136)
+exe 'vert 1resize ' . ((&columns * 90 + 73) / 146)
+exe '2resize ' . ((&lines * 17 + 19) / 39)
+exe 'vert 2resize ' . ((&columns * 55 + 73) / 146)
+exe '3resize ' . ((&lines * 18 + 19) / 39)
+exe 'vert 3resize ' . ((&columns * 55 + 73) / 146)
 argglobal
 balt ../X/in
 setlocal fdm=manual
@@ -68,12 +68,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 28 - ((18 * winheight(0) + 14) / 28)
+let s:l = 15 - ((10 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 28
-normal! 024|
+keepjumps 15
+normal! 04|
 wincmd w
 argglobal
 if bufexists(fnamemodify("../X/in", ":p")) | buffer ../X/in | else | edit ../X/in | endif
@@ -91,7 +91,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 6) / 13)
+let s:l = 1 - ((0 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -114,23 +114,48 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 7) / 14)
+let s:l = 1 - ((0 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 1
 normal! 0
 wincmd w
-exe 'vert 1resize ' . ((&columns * 84 + 68) / 136)
-exe '2resize ' . ((&lines * 13 + 15) / 31)
-exe 'vert 2resize ' . ((&columns * 51 + 68) / 136)
-exe '3resize ' . ((&lines * 14 + 15) / 31)
-exe 'vert 3resize ' . ((&columns * 51 + 68) / 136)
+exe 'vert 1resize ' . ((&columns * 90 + 73) / 146)
+exe '2resize ' . ((&lines * 17 + 19) / 39)
+exe 'vert 2resize ' . ((&columns * 55 + 73) / 146)
+exe '3resize ' . ((&lines * 18 + 19) / 39)
+exe 'vert 3resize ' . ((&columns * 55 + 73) / 146)
 tabnext
 edit B.cpp
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe 'vert 1resize ' . ((&columns * 104 + 73) / 146)
+exe '2resize ' . ((&lines * 17 + 19) / 39)
+exe 'vert 2resize ' . ((&columns * 41 + 73) / 146)
+exe '3resize ' . ((&lines * 18 + 19) / 39)
+exe 'vert 3resize ' . ((&columns * 41 + 73) / 146)
 argglobal
 2argu
-balt A.cpp
+balt ../X/in
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -141,17 +166,96 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 14) / 28)
+let s:l = 18 - ((17 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 18
+normal! 0
+wincmd w
+argglobal
+2argu
+if bufexists(fnamemodify("../X/in", ":p")) | buffer ../X/in | else | edit ../X/in | endif
+if &buftype ==# 'terminal'
+  silent file ../X/in
+endif
+balt ../X/out
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1 - ((0 * winheight(0) + 8) / 17)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 1
 normal! 0
+wincmd w
+argglobal
+2argu
+if bufexists(fnamemodify("../X/out", ":p")) | buffer ../X/out | else | edit ../X/out | endif
+if &buftype ==# 'terminal'
+  silent file ../X/out
+endif
+balt ../X/in
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1 - ((0 * winheight(0) + 9) / 18)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 0
+wincmd w
+exe 'vert 1resize ' . ((&columns * 104 + 73) / 146)
+exe '2resize ' . ((&lines * 17 + 19) / 39)
+exe 'vert 2resize ' . ((&columns * 41 + 73) / 146)
+exe '3resize ' . ((&lines * 18 + 19) / 39)
+exe 'vert 3resize ' . ((&columns * 41 + 73) / 146)
 tabnext
 edit C.cpp
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe 'vert 1resize ' . ((&columns * 101 + 73) / 146)
+exe '2resize ' . ((&lines * 17 + 19) / 39)
+exe 'vert 2resize ' . ((&columns * 44 + 73) / 146)
+exe '3resize ' . ((&lines * 18 + 19) / 39)
+exe 'vert 3resize ' . ((&columns * 44 + 73) / 146)
 argglobal
 3argu
-balt A.cpp
+balt ../X/in
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -162,12 +266,66 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 14) / 28)
+let s:l = 1 - ((0 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 1
 normal! 0
+wincmd w
+argglobal
+3argu
+if bufexists(fnamemodify("../X/in", ":p")) | buffer ../X/in | else | edit ../X/in | endif
+if &buftype ==# 'terminal'
+  silent file ../X/in
+endif
+balt ../X/out
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1 - ((0 * winheight(0) + 8) / 17)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 0
+wincmd w
+argglobal
+3argu
+if bufexists(fnamemodify("../X/out", ":p")) | buffer ../X/out | else | edit ../X/out | endif
+if &buftype ==# 'terminal'
+  silent file ../X/out
+endif
+balt ../X/in
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1 - ((0 * winheight(0) + 9) / 18)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 0
+wincmd w
+exe 'vert 1resize ' . ((&columns * 101 + 73) / 146)
+exe '2resize ' . ((&lines * 17 + 19) / 39)
+exe 'vert 2resize ' . ((&columns * 44 + 73) / 146)
+exe '3resize ' . ((&lines * 18 + 19) / 39)
+exe 'vert 3resize ' . ((&columns * 44 + 73) / 146)
 tabnext
 edit template.cpp
 argglobal
@@ -183,7 +341,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 14) / 28)
+let s:l = 1 - ((0 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
