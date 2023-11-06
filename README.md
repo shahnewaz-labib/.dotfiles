@@ -18,3 +18,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/shahnewaz-labib/.dotfiles/
   }
 }
 ```
+
+### Audio
+```alsamixer pavucontrol```
