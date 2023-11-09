@@ -5,6 +5,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/shahnewaz-labib/.dotfiles/
 ```
 
 ### Discord
+In `~/.config/discord/settings.json`:
 ```json
 {
   "SKIP_HOST_UPDATE": true,
@@ -20,4 +21,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/shahnewaz-labib/.dotfiles/
 ```
 
 ### Audio
-```alsamixer pavucontrol```
+```bash 
+pacman -S alsamixer pavucontrol
+```
