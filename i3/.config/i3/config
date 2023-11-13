@@ -284,8 +284,11 @@ mode "$mode_system" {
 # Toggle bar on/off
 bindsym $mod+Shift+b --release bar mode toggle
 
+
+
 bar {
-   mode hide
+   # mode dock|hide|invisible
+   mode dock 
    modifier none
    font pango:SourceCodeMono 10
    position top

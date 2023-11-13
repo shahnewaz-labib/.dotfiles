@@ -12,18 +12,18 @@
 using namespace std;
  
 void solve() {
-    string s = "abcd";
+    multiset<int> ms;
+    ms.insert(1);
+    ms.insert(4);
+    ms.insert(4);
+    ms.insert(2);
 
-    auto it = find(s.begin(), s.end(), 'c');
-    s.erase(it);
-
-    cout << s << "\n";
+    for(int e : ms) cout << e << " ";
 }
  
 signed main() {
     fastio int t;
     t = 1;
-    cin >> t;
     for (int tc = 1; tc <= t; tc++) {
         /* printf("Case no: %d\n", tc); */
         solve();

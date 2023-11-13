@@ -2,6 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.scripts/:$PATH
+export PATH=/opt/flutter/bin:$PATH 
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -117,6 +118,7 @@ alias copyfile="xclip -sel clip <"
 alias showip="curl -s https://api.ipify.org"
 alias topdf="soffice --headless --convert-to pdf"
 alias lgout="loginctl terminate-session $(loginctl session-status | head -n 1 | awk '{print $1}')"
+alias setupconda="source /opt/miniconda3/etc/profile.d/conda.sh"
 # alias cat="bat"
 # alias gs="git status"
 
