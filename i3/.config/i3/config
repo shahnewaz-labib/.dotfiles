@@ -26,6 +26,10 @@
 
 ################## CUSTOM ##################
 
+# polybar
+exec_always --no-startup-id ~/.config/polybar/polybar.sh &
+bindsym $mod+Shift+b exec --no-startup-id polybar-msg cmd toggle 
+
 # screenshot
 bindsym $mod+p exec flameshot gui --clipboard
 
@@ -282,26 +286,26 @@ mode "$mode_system" {
 # wal-powerline
 
 # Toggle bar on/off
-bindsym $mod+Shift+b --release bar mode toggle
+# bindsym $mod+Shift+b --release bar mode toggle
 
 
 
-bar {
-   # mode dock|hide|invisible
-   mode dock 
-   modifier none
-   font pango:SourceCodeMono 10
-   position top
-   #tray_output none
-   status_command ~/.config/bumblebee-status/bumblebee-status \
-   -t gruvbox-powerline-light \
-   -m memory date time brightness pasink pasource battery \
-   -p \
-   date.format="%a, %d %b %Y" \
-   time.format="%I:%M %p" \
-   memory.format="{used}" \
-   # redshift.location="manual" redshift.lat="24.1" redshift.lon="90.41" \
-   # network_traffic.interval=2 \
-   cpu.interval=2 \
-   memory.interval=2
-}
+#bar {
+#   # mode dock|hide|invisible
+#   mode dock 
+#   modifier none
+#   font pango:MesloLGS Nerd Font 10
+#   position top
+#   #tray_output none
+#   status_command ~/.config/bumblebee-status/bumblebee-status \
+#   -t dracula-powerline \
+#   -m memory date time brightness pasink pasource battery \
+#   -p \
+#   date.format="%a, %d %b %Y" \
+#   time.format="%I:%M %p" \
+#   memory.format="{used}" \
+#   # redshift.location="manual" redshift.lat="24.1" redshift.lon="90.41" \
+#   # network_traffic.interval=2 \
+#   cpu.interval=2 \
+#   memory.interval=2
+#}

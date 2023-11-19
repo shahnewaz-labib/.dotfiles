@@ -1,31 +1,29 @@
-#include "bits/stdc++.h"
-#define fastio ios_base::sync_with_stdio(0), cin.tie(nullptr);
-#define int LL
-#define LL long long
- 
-#ifdef LOCAL
-#include "dbg.h"
-#else
-#define dbg(...)
-#endif
- 
-using namespace std;
- 
-void solve() {
-    multiset<int> ms;
-    ms.insert(1);
-    ms.insert(4);
-    ms.insert(4);
-    ms.insert(2);
-
-    for(int e : ms) cout << e << " ";
+int n;
+cin >> n;
+vector<string> a(n);
+int cnt[50][10] = {};
+for (auto &s : a) {
+    cin >> s;
+    int sum = accumulate(s.begin(), s.end(), 0LL) - '0' * s.size();
+    cnt[sum][s.size()]++;
 }
- 
-signed main() {
-    fastio int t;
-    t = 1;
-    for (int tc = 1; tc <= t; tc++) {
-        /* printf("Case no: %d\n", tc); */
-        solve();
+
+int ans = 0;
+for (auto &s : a) {
+    int sum = accumulate(s.begin(), s.end(), 0LL) - '0' * s.size();
+    for (int i = 0; sum > 0 && i < s.size(); i++) {
+        int len = s.size() - i;
+        int need = 2 * len - s.size();
+        ans += cnt[sum][need];
+        sum -= 2 * (s[i] - '0');
+    }
+    sum = accumulate(s.begin(), s.end(), 0LL) - '0' * s.size();
+    ans -= cnt[sum][s.size()];
+    for (int i = s.size() - 1; sum > 0 && i >= 0; i--) {
+        int len = i + 1;
+        int need = 2 * len - s.size();
+        ans += cnt[sum][need];
+        sum -= 2 * (s[i] - '0');
     }
 }
+
