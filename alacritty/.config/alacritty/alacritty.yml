@@ -4,7 +4,7 @@ font:
     # family: JetBrains Mono
     # family: MesloLGS Nerd Font
 
-  size: 10.0
+  size: 9.0
 
 shell:
   program: /usr/bin/zsh

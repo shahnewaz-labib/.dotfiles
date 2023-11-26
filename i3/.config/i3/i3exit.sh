@@ -10,8 +10,15 @@ fi
 if [ "$1" = "lock" ]; then
   # Run betterlockscreen -l
   betterlockscreen -l
-else
-  echo "Invalid action. Please provide 'lock' as the parameter."
-  exit 1
+# else
+#   echo "Invalid action. Please provide 'lock' as the parameter."
+#   exit 1
 fi
 
+
+if [ "$1" = "shutdown" ]; then
+    shutdown now
+# else
+#   echo "Invalid action. Please provide 'lock' as the parameter."
+#   exit 1
+fi
