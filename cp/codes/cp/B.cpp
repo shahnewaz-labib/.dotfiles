@@ -1,29 +1,43 @@
-int n;
-cin >> n;
-vector<string> a(n);
-int cnt[50][10] = {};
-for (auto &s : a) {
-    cin >> s;
-    int sum = accumulate(s.begin(), s.end(), 0LL) - '0' * s.size();
-    cnt[sum][s.size()]++;
+#include "bits/stdc++.h"
+#define fastio ios_base::sync_with_stdio(0), cin.tie(nullptr);
+#define int LL
+#define LL long long
+
+#ifdef LOCAL
+#include "dbg.h"
+#else
+#define dbg(...)
+#endif
+
+using namespace std;
+
+void solve() {
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+    }
+    int ans = a[0];
+    int mn = min(0LL, a[0]), sum = a[0];
+    for (int i = 1; i < n; ++i) {
+        if (abs(a[i] % 2) == abs(a[i - 1] % 2)) {
+            mn = 0;
+            sum = 0;
+        }
+        sum += a[i];
+        ans = max(ans, sum - mn);
+        mn = min(mn, sum);
+
+        dbg(sum, ans, mn);
+    }
+    cout << ans << endl;
 }
 
-int ans = 0;
-for (auto &s : a) {
-    int sum = accumulate(s.begin(), s.end(), 0LL) - '0' * s.size();
-    for (int i = 0; sum > 0 && i < s.size(); i++) {
-        int len = s.size() - i;
-        int need = 2 * len - s.size();
-        ans += cnt[sum][need];
-        sum -= 2 * (s[i] - '0');
-    }
-    sum = accumulate(s.begin(), s.end(), 0LL) - '0' * s.size();
-    ans -= cnt[sum][s.size()];
-    for (int i = s.size() - 1; sum > 0 && i >= 0; i--) {
-        int len = i + 1;
-        int need = 2 * len - s.size();
-        ans += cnt[sum][need];
-        sum -= 2 * (s[i] - '0');
+signed main() {
+    int tc = 1;
+    cin >> tc;
+    for (int t = 1; t <= tc; t++) {
+        solve();
     }
 }
-

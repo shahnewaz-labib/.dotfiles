@@ -16,7 +16,8 @@ void solve() {
 }
  
 signed main() {
-    fastio int t;
+    fastio;
+    int t;
     t = 1;
     cin >> t;
     for (int tc = 1; tc <= t; tc++) {
