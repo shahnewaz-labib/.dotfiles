@@ -12,32 +12,20 @@
 using namespace std;
 
 void solve() {
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> a[i];
+    multiset<int> s;
+    for (int i = 0; i < 10; i++) {
+        s.insert((i + 1) * 10);
     }
-    int ans = a[0];
-    int mn = min(0LL, a[0]), sum = a[0];
-    for (int i = 1; i < n; ++i) {
-        if (abs(a[i] % 2) == abs(a[i - 1] % 2)) {
-            mn = 0;
-            sum = 0;
-        }
-        sum += a[i];
-        ans = max(ans, sum - mn);
-        mn = min(mn, sum);
-
-        dbg(sum, ans, mn);
-    }
-    cout << ans << endl;
+    int idx = s.find(s.lower_bound(10)) - s.begin();
+    cout << idx << "\n";
 }
 
 signed main() {
-    int tc = 1;
-    cin >> tc;
-    for (int t = 1; t <= tc; t++) {
+    fastio;
+    int t;
+    t = 1;
+    for (int tc = 1; tc <= t; tc++) {
+        /* printf("Case no: %d\n", tc); */
         solve();
     }
 }

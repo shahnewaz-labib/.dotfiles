@@ -12,39 +12,37 @@
 using namespace std;
 
 void solve() {
-    int n, w;
-    cin >> n >> w;
+    int n;
+    cin >> n;
 
-    set<int> s;
+    stack<int> s;
+    int x;
+
+    vector<int> v(n);
+    for (int &i : v)
+        cin >> i;
+
     for (int i = 0; i < n; i++) {
-        int x, y;
-        cin >> x >> y;
-        s.insert(y);
-    }
-
-    vector<int> v;
-    for (int x : s) {
-        v.push_back(x);
-    }
-
-
-    int ans = 1, l = v[0] + w;
-    for (int i = 1; i < v.size(); i++) {
-        if (l < v[i]) {
-            ans++;
-            l = v[i] + w;
+        while (!s.empty() && v[s.top()] >= v[i]) {
+            s.pop();
         }
-    }
 
-    cout << ans << "\n";
+        if (s.empty()) {
+            cout << "0 ";
+        } else {
+            cout << s.top() + 1 << " ";
+        }
+
+        s.push(i);
+    }
 }
 
 signed main() {
+    fastio;
     int t;
     t = 1;
-    cin >> t;
     for (int tc = 1; tc <= t; tc++) {
-        printf("Case %lld: ", tc);
+        /* printf("Case no: %d\n", tc); */
         solve();
     }
 }

@@ -109,6 +109,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias g="git"
 alias ip="ip --color=auto"
 alias vcp="cd ~/codes/cp/ && nvim -S ~/codes/cp/cp"
 alias mkdir="mkdir -p"
