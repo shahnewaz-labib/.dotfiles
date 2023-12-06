@@ -8,7 +8,7 @@ export PATH=/opt/flutter/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
-export BROWSER=brave
+export BROWSER=google-chrome-stable
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
 

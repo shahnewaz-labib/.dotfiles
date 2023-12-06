@@ -34,7 +34,7 @@ bindsym $mod+Shift+b exec --no-startup-id polybar-msg cmd toggle
 bindsym $mod+p exec flameshot gui --clipboard
 
 # browser
-bindsym $mod+b exec brave
+bindsym $mod+b exec google-chrome-stable
 
 # autostart
 exec --no-startup-id xset r rate 300 30
@@ -58,6 +58,8 @@ for_window [class="^.*"] border pixel 1
 
 gaps inner 2
 gaps outer 1
+
+# default_border pixel 10
 
 #border_radius 2
 

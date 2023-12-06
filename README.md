@@ -24,3 +24,8 @@ In `~/.config/discord/settings.json`:
 ```bash 
 pacman -S alsamixer pavucontrol
 ```
+
+### PDF and ePUB
+```bash
+pacman -S evince foliate
+```

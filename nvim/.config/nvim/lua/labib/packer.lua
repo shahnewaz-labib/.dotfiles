@@ -11,26 +11,53 @@ return require('packer').startup(
         use 'wbthomason/packer.nvim'
 
         use {
-            'nvim-telescope/telescope.nvim', tag = '0.1.0',
-            -- or                            , branch = '0.1.x',
+            'nvim-tree/nvim-tree.lua',
+            requires = {
+                'nvim-tree/nvim-web-devicons', -- optional
+            },
+        }
+
+        use {
+            'nvim-telescope/telescope.nvim', tag = '0.1.4',
             requires = { {'nvim-lua/plenary.nvim'} }
         }
+
+        use "stevearc/aerial.nvim"
+
+        -- Need to configure it
+        use {
+            "folke/which-key.nvim",
+            config = function()
+                vim.o.timeout = true
+                vim.o.timeoutlen = 300
+
+                require("which-key").setup {
+                    -- your configuration comes here
+                    -- or leave it empty to use the default settings
+                    -- refer to the configuration section below
+                }
+            end
+        }
+
+        use ({
+            "rebelot/kanagawa.nvim",
+            as = 'kanagawa',
+        })
 
         use({
             'rose-pine/neovim',
             as = 'rose-pine',
-            config = function()
-                vim.cmd('colorscheme gruvbox')
-            end
         })
 
         use({
             'morhetz/gruvbox',
             as = 'gruvbox',
-            config = function()
-                vim.cmd('colorscheme gruvbox')
-            end
+            -- config = function()
+            --     vim.cmd('colorscheme gruvbox')
+            -- end
         })
+
+        use "lukas-reineke/indent-blankline.nvim"
 
         use 'tpope/vim-commentary'
 
