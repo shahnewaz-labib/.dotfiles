@@ -5,6 +5,7 @@ vim.cmd.packadd('packer.nvim')
 
 return require('packer').startup(
     function(use)
+        use 'RRethy/vim-illuminate'
         use 'lewis6991/gitsigns.nvim'
         use 'github/copilot.vim'
 

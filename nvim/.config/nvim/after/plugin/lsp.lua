@@ -80,5 +80,5 @@ vim.api.nvim_set_keymap(
 )
 
 vim.diagnostic.config({
-    virtual_text = false
+    virtual_text = false,
 })
