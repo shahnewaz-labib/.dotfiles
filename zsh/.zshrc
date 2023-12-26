@@ -17,7 +17,8 @@ export HISTSIZE=1000000000
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="eastwood"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -111,6 +112,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias g="git"
+alias gs="git status"
 alias ip="ip --color=auto"
 alias vcp="cd ~/codes/cp/ && nvim -S ~/codes/cp/cp"
 alias mkdir="mkdir -p"
@@ -122,6 +124,10 @@ alias showip="curl -s https://api.ipify.org"
 alias topdf="soffice --headless --convert-to pdf"
 alias lgout="loginctl terminate-session $(loginctl session-status | head -n 1 | awk '{print $1}')"
 alias setupconda="source /opt/miniconda3/etc/profile.d/conda.sh"
+alias vim="nvim"
+alias v="nvim"
+alias vconfkick="rm -rf ~/.config/nvim; ln -sf ~/.config/nvim-kickstart/ ~/.config/nvim"
+alias vconfown="rm -rf ~/.config/nvim; ln -sf ~/.config/nvim-own/ ~/.config/nvim"
 # alias cat="bat"
 # alias gs="git status"
 
@@ -131,3 +137,10 @@ eval "$(lua ~/.scripts/z.lua --init zsh)"
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then 
   exec startx &>/dev/null 
 fi
+
+# bun completions
+[ -s "/home/labib/.bun/_bun" ] && source "/home/labib/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
