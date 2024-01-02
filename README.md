@@ -20,6 +20,15 @@ In `~/.config/discord/settings.json`:
 }
 ```
 
+### Annoying kwallet thingy
+In `~/.config/kwalletrc`:
+```
+[Migration]
+alreadyMigrated=true
+[Wallet]
+Enabled=false
+```
+
 ### Audio
 ```bash 
 pacman -S alsamixer pavucontrol
