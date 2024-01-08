@@ -17,8 +17,8 @@ export HISTSIZE=1000000000
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="eastwood"
+ZSH_THEME="robbyrussell"
+# ZSH_THEME="crcandy"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -126,8 +126,10 @@ alias lgout="loginctl terminate-session $(loginctl session-status | head -n 1 | 
 alias setupconda="source /opt/miniconda3/etc/profile.d/conda.sh"
 alias vim="nvim"
 alias v="nvim"
-alias vconfkick="rm -rf ~/.config/nvim; ln -sf ~/.config/nvim-kickstart/ ~/.config/nvim"
-alias vconfown="rm -rf ~/.config/nvim; ln -sf ~/.config/nvim-own/ ~/.config/nvim"
+# alias vconfkick="rm -rf ~/.config/nvim; ln -sf ~/.config/nvim-kickstart/ ~/.config/nvim"
+# alias vconfown="rm -rf ~/.config/nvim; ln -sf ~/.config/nvim-own/ ~/.config/nvim"
+alias wcc="warp-cli connect"
+alias wcd="warp-cli disconnect"
 # alias cat="bat"
 # alias gs="git status"
 

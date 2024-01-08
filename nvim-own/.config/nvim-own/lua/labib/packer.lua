@@ -105,11 +105,6 @@ return require('packer').startup(
             }
 
             use("folke/zen-mode.nvim")
-            -- use("github/copilot.vim")
-            -- use("eandrju/cellular-automaton.nvim")
-            -- use("laytan/cloak.nvim")
-            --
-
             use("jose-elias-alvarez/typescript.nvim")
 
     end

@@ -71,6 +71,16 @@ require('lazy').setup({
     event = "InsertEnter",
     opts = {}
   },
+
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  },
+
   -- Copilot
   'github/copilot.vim',
   -- Highlight word
@@ -86,6 +96,7 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
+  'laytan/cloak.nvim',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -129,14 +140,14 @@ require('lazy').setup({
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
-      -- -- See `:help gitsigns.txt`
-      -- signs = {
-      --   add = { text = '+' },
-      --   change = { text = '~' },
-      --   delete = { text = '_' },
-      --   topdelete = { text = '‾' },
-      --   changedelete = { text = '~' },
-      -- },
+      -- See `:help gitsigns.txt`
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      },
       -- on_attach = function(bufnr)
       --   local gs = package.loaded.gitsigns
       --
@@ -360,6 +371,9 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 -- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+-- map("i", "<C-y>", 'copilot#Accept("")', { script = true, expr = true }) do this map using vim.keymap
+vim.keymap.set('i', '<C-l>', 'copilot#Accept("")', {noremap = true, silent = true, expr = true, replace_keycodes = false })
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -507,15 +521,15 @@ vim.defer_fn(function()
           ['[]'] = '@class.outer',
         },
       },
-      swap = {
-        enable = true,
-        swap_next = {
-          ['<leader>a'] = '@parameter.inner',
-        },
-        swap_previous = {
-          ['<leader>A'] = '@parameter.inner',
-        },
-      },
+      -- swap = {
+      --   enable = true,
+      --   swap_next = {
+      --     ['<leader>a'] = '@parameter.inner',
+      --   },
+      --   swap_previous = {
+      --     ['<leader>A'] = '@parameter.inner',
+      --   },
+      -- },
     },
   }
 end, 0)
@@ -717,6 +731,73 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 
 require("nvim-tree").setup()
 
+require('cloak').setup({
+  enabled = true,
+  cloak_character = '*',
+  -- The applied highlight group (colors) on the cloaking, see `:h highlight`.
+  highlight_group = 'Comment',
+  -- Applies the length of the replacement characters for all matched
+  -- patterns, defaults to the length of the matched pattern.
+  cloak_length = nil, -- Provide a number if you want to hide the true length of the value.
+  -- Wether it should try every pattern to find the best fit or stop after the first.
+  try_all_patterns = true,
+  patterns = {
+    {
+      -- Match any file starting with '.env'.
+      -- This can be a table to match multiple file patterns.
+      file_pattern = '.env*',
+      -- Match an equals sign and any character after it.
+      -- This can also be a table of patterns to cloak,
+      -- example: cloak_pattern = { ':.+', '-.+' } for yaml files.
+      cloak_pattern = '=.+',
+      -- A function, table or string to generate the replacement.
+      -- The actual replacement will contain the 'cloak_character'
+      -- where it doesn't cover the original text.
+      -- If left emtpy the legacy behavior of keeping the first character is retained.
+      replace = nil,
+    },
+  },
+})
+
+local harpoon = require("harpoon")
+
+-- REQUIRED
+harpoon:setup()
+-- REQUIRED
+
+vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+vim.keymap.set("n", "<C-t>", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<C-h>", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
+
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+
+-- use telescope for harpoon
+-- local conf = require("telescope.config").values
+-- local function toggle_telescope(harpoon_files)
+--     local file_paths = {}
+--     for _, item in ipairs(harpoon_files.items) do
+--         table.insert(file_paths, item.value)
+--     end
+--
+--     require("telescope.pickers").new({}, {
+--         prompt_title = "Harpoon",
+--         finder = require("telescope.finders").new_table({
+--             results = file_paths,
+--         }),
+--         previewer = conf.file_previewer({}),
+--         sorter = conf.generic_sorter({}),
+--     }):find()
+-- end
+--
+-- vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
+
+
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -751,6 +832,9 @@ vim.keymap.set("n", "<leader>Y", [[gg"+yG'']])
 
 vim.keymap.set("n", "p", [["0p]])
 
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 -- stop annoying warnings
 local notify = vim.notify
 vim.notify = function(msg, ...)
@@ -760,6 +844,8 @@ vim.notify = function(msg, ...)
 
   notify(msg, ...)
 end
+
+vim.g.copilot_assume_mapped = true
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
