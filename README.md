@@ -34,6 +34,19 @@ Enabled=false
 pacman -S alsamixer pavucontrol
 ```
 
+### Enable tap, natural scrolling
+In `/etc/X11/xorg.conf.d/30-touchpad.conf`:
+```
+Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "Tapping" "on"
+    Option "TappingButtonMap" "lmr"
+    Option "NaturalScrolling" "true"
+EndSection
+```
+
 ### PDF and ePUB
 ```bash
 pacman -S evince foliate
