@@ -42,7 +42,6 @@ Section "InputClass"
     Driver "libinput"
     MatchIsTouchpad "on"
     Option "Tapping" "on"
-    Option "TappingButtonMap" "lmr"
     Option "NaturalScrolling" "true"
 EndSection
 ```
