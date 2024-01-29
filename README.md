@@ -31,7 +31,10 @@ Enabled=false
 
 ### Audio
 ```bash 
-pacman -S alsamixer pavucontrol
+pacman -S (alsamixer)? pavucontrol
+pacman -S pulseaudio-alsa pavucontrol
+pulseaudio --check
+pulseaudio -D
 ```
 
 ### Enable tap, natural scrolling
