@@ -29,10 +29,12 @@ alreadyMigrated=true
 Enabled=false
 ```
 
-### Audio
+### Audio & Bluetooth
 ```bash 
 pacman -S (alsamixer)? pavucontrol
 pacman -S pulseaudio-alsa pavucontrol
+pacman -S bluez bluez-utils blueman
+systemctl enable --start bluetooth.service
 pulseaudio --check
 pulseaudio -D
 ```
