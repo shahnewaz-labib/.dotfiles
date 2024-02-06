@@ -4,6 +4,22 @@ CONFIG_DIR=~/.config/nvim
 CONFIG_OWN=~/.config/nvim-own
 CONFIG_KICK=~/.config/nvim-kickstart
 
+# if argument is passed, and is "test", then echo the variables
+if [ "$1" == "test" ]; then
+    rm -rf $CONFIG_DIR
+    ln -sf ~/.config/nvim-test $CONFIG_DIR
+    notify-send "Swap success" "Swapped to test config"
+    exit 0
+fi
+
+if [ "$1" == "undotest" ]; then
+    rm -rf $CONFIG_DIR
+    ln -sf $CONFIG_KICK ~/.config/nvim-own
+    notify-send "Swap success" "Swapped to own config"
+    exit 0
+fi
+
+
 CUR=`readlink -f $CONFIG_DIR | awk -F/ '{print $NF}'`
 KICK=`echo $CONFIG_KICK | awk -F/ '{print $NF}'`
 OWN=`echo $CONFIG_OWN | awk -F/ '{print $NF}'`

@@ -34,7 +34,7 @@ bindsym $mod+Shift+b exec --no-startup-id polybar-msg cmd toggle
 bindsym $mod+p exec flameshot gui --clipboard
 
 # browser
-bindsym $mod+b exec google-chrome-stable
+bindsym $mod+b exec brave
 
 # autostart
 exec --no-startup-id xset r rate 300 30
