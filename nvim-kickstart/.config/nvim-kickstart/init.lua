@@ -20,6 +20,12 @@ require('lazy').setup({
   },
 
   {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    config = true
+  },
+
+  {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = {
@@ -319,11 +325,11 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
+  clangd = {},
   -- gopls = {},
   -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
+  rust_analyzer = {},
+  tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
@@ -423,6 +429,7 @@ require("labib.harpoon")
 require("labib.whichkey")
 require("labib.neodev")
 require("labib.keymaps")
+require("labib.toggleterm")
 
 -- stop annoying warnings
 local notify = vim.notify

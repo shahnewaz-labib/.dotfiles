@@ -12,3 +12,4 @@ PS1='[\u@\h \W]\$ '
 eval "$(lua ~/.scripts/z.lua --init bash)"
 # eval "$(starship init bash)"
 
+. "$HOME/.cargo/env"

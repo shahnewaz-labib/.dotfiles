@@ -10,17 +10,29 @@
 #endif
  
 using namespace std;
+
+void bin(int n) {
+    for(int i = 1; i <= n; i++) {
+        vector<int> ans;
+        int x = i;
+        while(x) {
+            ans.push_back((x&1));
+            x >>= 1;
+        }
+        reverse(ans.begin(), ans.end());
+        for(int e : ans) cout << e;
+        cout << "\n";
+    }
+}
  
 void solve() {
-    stack<char> st;
-    st.pop();
+    bin(10);
 }
  
 signed main() {
     fastio;
     int t;
     t = 1;
-    cin >> t;
     for (int tc = 1; tc <= t; tc++) {
         /* printf("Case no: %d\n", tc); */
         solve();

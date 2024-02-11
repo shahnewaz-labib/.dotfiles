@@ -40,7 +40,7 @@ white = "#bfbfbf"
 yellow = "#f1fa8c"
 
 [colors.primary]
-background = "#282a36"
+background = "#2F2F31"
 foreground = "#f8f8f2"
 
 [colors.search.focused_match]
@@ -67,10 +67,10 @@ unfocused_hollow = true
 TERM = "xterm-256color"
 
 [font]
-size = 10.0
+size = 11.0
 
 [font.normal]
-family = "Hack"
+family = "MesloLGL Nerd Font"
 style = "Regular"
 
 [font.offset]
