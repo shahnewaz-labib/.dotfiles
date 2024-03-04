@@ -1,6 +1,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.opt.swapfile = false
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -21,7 +24,7 @@ vim.g.copilot_assume_mapped = true
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
-vim.o.relativenumber = true
+vim.o.relativenumber = false
 
 -- Set highlight on search
 vim.o.hlsearch = false

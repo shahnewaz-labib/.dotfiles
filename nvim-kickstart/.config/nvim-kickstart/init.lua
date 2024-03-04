@@ -12,11 +12,25 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
+  {
+    'folke/which-key.nvim',
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {}
+  },
+
   -- autopairs
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
     opts = {}
+  },
+
+  {
+    "ThePrimeagen/vim-be-good",
   },
 
   {
@@ -88,14 +102,34 @@ require('lazy').setup({
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
+      current_line_blame = true,
+      current_line_blame_opts = {
+        virt_text = true,
+        virt_text_pos = 'right_align',
+      },
     },
   },
 
   {
     "ellisonleao/gruvbox.nvim",
     priority = 1000,
+    -- config = function()
+    -- vim.cmd.colorscheme 'gruvbox'
+    -- end
+  },
+
+  {
+    "rose-pine/neovim",
+    priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'gruvbox'
+      require("rose-pine").setup({
+        dim_inactive_windows = false,
+        disable_background = true,
+        extend_background_behind_borders = true,
+      })
+      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+      vim.cmd.colorscheme "rose-pine-moon"
     end
   },
 
@@ -169,6 +203,7 @@ require('lazy').setup({
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
+  { "JoosepAlviste/nvim-ts-context-commentstring" },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -212,7 +247,20 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = {
+      'c',
+      'cpp',
+      'go',
+      'lua',
+      'python',
+      'rust',
+      'tsx',
+      'javascript',
+      'typescript',
+      'vimdoc',
+      'vim',
+      'bash'
+    },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = true,
