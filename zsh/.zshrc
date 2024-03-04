@@ -8,7 +8,7 @@ export PATH=/opt/flutter/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
-export BROWSER=google-chrome-stable
+export BROWSER=brave
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
 
@@ -124,8 +124,9 @@ alias showip="curl -s https://api.ipify.org"
 alias topdf="soffice --headless --convert-to pdf"
 alias lgout="loginctl terminate-session $(loginctl session-status | head -n 1 | awk '{print $1}')"
 alias setupconda="source /opt/miniconda3/etc/profile.d/conda.sh"
-alias vim="nvim"
-alias v="nvim"
+alias vim="nvim ."
+alias v="nvim ."
+alias nvconf="nvim ~/.config/nvim"
 alias t="tmux"
 alias ls="exa -l"
 # alias vconfkick="rm -rf ~/.config/nvim; ln -sf ~/.config/nvim-kickstart/ ~/.config/nvim"
@@ -134,9 +135,6 @@ alias wcc="warp-cli connect"
 alias wcd="warp-cli disconnect"
 # alias cat="bat"
 # alias gs="git status"
-
-
-eval "$(lua ~/.scripts/z.lua --init zsh)"
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then 
   exec startx &>/dev/null 
@@ -152,3 +150,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(zoxide init --cmd cd zsh)"
