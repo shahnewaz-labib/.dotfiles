@@ -1,3 +1,4 @@
+local vim = vim
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
@@ -202,7 +203,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',                      opts = {} },
   { "JoosepAlviste/nvim-ts-context-commentstring" },
 
   -- Fuzzy Finder (files, lsp, etc)
@@ -228,6 +229,15 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+
+  {
+    'nvimtools/none-ls.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'neovim/nvim-lspconfig',
+    },
+  }
+
 }, {})
 
 -- [[ Highlight on yank ]]
@@ -373,7 +383,11 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  clangd = {},
+  clangd = {
+    filetypes = { 'c', 'cpp' },
+    settings = {
+    },
+  },
   -- gopls = {},
   -- pyright = {},
   rust_analyzer = {},
@@ -385,7 +399,7 @@ local servers = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
       -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-      -- diagnostics = { disable = { 'missing-fields' } },
+      diagnostics = { disable = { 'missing-fields' } },
     },
   },
 }
