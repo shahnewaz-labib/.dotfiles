@@ -1,3 +1,4 @@
+local vim = vim
 -- remaps
 vim.keymap.set("n", "<leader>q", ":qa!<CR>")
 vim.keymap.set("n", "<leader>/", ":NvimTreeToggle<CR>")
@@ -9,7 +10,6 @@ vim.keymap.set("n", "<F6>",
 
 -- copy template to current file
 vim.keymap.set("n", "<leader>t", ":!cp ~/codes/cp/template.cpp %<CR><CR>")
-vim.keymap.set("n", "<leader>f", ":Format<CR>")
 
 -- next greatest remap ever : asbjornHaland
 -- copying
