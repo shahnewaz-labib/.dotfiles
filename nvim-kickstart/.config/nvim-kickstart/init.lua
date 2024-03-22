@@ -17,21 +17,21 @@ require("labib.lsp")
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = "*",
 })
 
 -- stop annoying warnings
 local notify = vim.notify
 vim.notify = function(msg, ...)
-  if msg:match("warning: multiple different client offset_encodings") then
-    return
-  end
+	if msg:match("warning: multiple different client offset_encodings") then
+		return
+	end
 
-  notify(msg, ...)
+	notify(msg, ...)
 end

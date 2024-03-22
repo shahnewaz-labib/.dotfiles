@@ -363,4 +363,6 @@ let &g:so = s:so_save | let &g:siso = s:siso_save
 nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
+Gitsigns toggle_signs
+Copilot disable
 " vim: set ft=vim :
