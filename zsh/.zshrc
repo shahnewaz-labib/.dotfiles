@@ -4,6 +4,7 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.scripts/:$PATH
 export PATH=/opt/flutter/bin:$PATH 
+export PATH=$HOME/go/bin/:$PATH 
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
