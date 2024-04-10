@@ -13,7 +13,6 @@ require("labib.whichkey")
 require("labib.neodev")
 require("labib.keymaps")
 require("labib.toggleterm")
-require("labib.lsp")
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
