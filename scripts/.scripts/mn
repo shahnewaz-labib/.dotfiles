@@ -1,0 +1,20 @@
+#/bin/bash
+
+monitors=$(xrandr | grep " connected" | awk '{print $1}')
+IFS=$'\n' monitors=($monitors)
+
+num_monitors=${#monitors[@]}
+
+echo "Monitors detected: $num_monitors"
+echo "Monitors: ${monitors[@]}"
+
+if [ $num_monitors -eq 1 ]; then
+    echo "Single monitor detected"
+    xrandr --output ${monitors[0]} --auto
+elif [ $num_monitors -eq 2 ]; then
+    echo "Dual monitor detected"
+    xrandr --output ${monitors[0]} --auto --primary --output ${monitors[1]} --auto --right-of ${monitors[0]}
+    echo "Set ${monitors[0]} as primary and ${monitors[1]} as secondary"
+else
+    echo "Unknown number of monitors detected"
+fi
