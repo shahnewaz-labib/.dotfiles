@@ -25,6 +25,7 @@ vim.g.copilot_assume_mapped = true
 -- NOTE: You can change these options as you wish!
 
 vim.o.relativenumber = false
+vim.o.scrolloff = 10
 
 -- Set highlight on search
 vim.o.hlsearch = false
