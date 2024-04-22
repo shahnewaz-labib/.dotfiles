@@ -55,3 +55,9 @@ EndSection
 ```bash
 pacman -S evince foliate
 ```
+
+### On lid close, do nothing
+In `/etc/systemd/logind.conf`:
+```
+HandleLidSwitch=ignore
+```
