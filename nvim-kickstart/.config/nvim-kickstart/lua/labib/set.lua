@@ -20,10 +20,6 @@ vim.cmd([[ highlight clear SignColumn ]])
 
 vim.g.copilot_assume_mapped = true
 
--- [[ Setting options ]]
--- See `:help vim.o`
--- NOTE: You can change these options as you wish!
-
 vim.o.relativenumber = false
 vim.o.scrolloff = 10
 

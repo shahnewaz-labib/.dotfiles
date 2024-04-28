@@ -1,7 +1,7 @@
 local vim = vim
 -- remaps
 vim.keymap.set("n", "<leader>q", ":qa!<CR>")
-vim.keymap.set("n", "<leader>/", ":NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader><BS>", ":NvimTreeToggle<CR>")
 
 -- copy from clipboard to input file
 vim.keymap.set("n", "<F4>", "<cmd>silent !xclip -o -sel clip > ~/codes/X/in<CR>")
