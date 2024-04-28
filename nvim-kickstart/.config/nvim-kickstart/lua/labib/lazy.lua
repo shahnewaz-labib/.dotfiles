@@ -6,7 +6,7 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
+		"--branch=stable",
 		lazypath,
 	})
 end
@@ -56,11 +56,10 @@ require("lazy").setup({
 	-- Copilot
 	"github/copilot.vim",
 
-	-- NOTE: First, some plugins that don't require any configuration
 	"nvim-tree/nvim-tree.lua",
 	"nvim-tree/nvim-web-devicons",
 
-	-- Git related plugins
+	-- Git
 	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",
 
@@ -97,7 +96,6 @@ require("lazy").setup({
 	},
 
 	{
-		-- Adds git related signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
 		opts = {
 			signs = {
@@ -210,7 +208,6 @@ require("lazy").setup({
 	{ "numToStr/Comment.nvim", opts = {} },
 	{ "JoosepAlviste/nvim-ts-context-commentstring" },
 
-	-- Fuzzy Finder (files, lsp, etc)
 	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
