@@ -10,23 +10,11 @@
 #endif
  
 using namespace std;
-
-void bin(int n) {
-    for(int i = 1; i <= n; i++) {
-        vector<int> ans;
-        int x = i;
-        while(x) {
-            ans.push_back((x&1));
-            x >>= 1;
-        }
-        reverse(ans.begin(), ans.end());
-        for(int e : ans) cout << e;
-        cout << "\n";
-    }
-}
  
 void solve() {
-    bin(10);
+    vector<int> v = {1,2,3};
+    v.resize(5);
+    for(int e:v)cout<<e<<" ";
 }
  
 signed main() {

@@ -1,16 +1,6 @@
--- mason-lspconfig requires that these setup functions are called in this order
--- before setting up the servers.
 require("mason").setup()
 require("mason-lspconfig").setup()
 
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
---
---  If you want to override the default filetypes that your language server will attach to you can
---  define the property 'filetypes' to the map in question.
 local servers = {
 	clangd = {
 		filetypes = { "c", "cpp" },
@@ -18,18 +8,17 @@ local servers = {
 			tabwidth = 4,
 		},
 	},
-	-- gopls = {},
-	-- pyright = {},
 	rust_analyzer = {},
 	tsserver = {},
-	-- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
 			telemetry = { enable = false },
 			-- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-			diagnostics = { disable = { "missing-fields" } },
+			diagnostics = {
+				disable = { "missing-fields" },
+				globals = { "vim" },
+			},
 		},
 	},
 }
@@ -48,12 +37,6 @@ mason_lspconfig.setup({
 })
 
 local on_attach = function(_, bufnr)
-	-- NOTE: Remember that lua is a real programming language, and as such it is possible
-	-- to define small helper and utility functions so you don't have to repeat yourself
-	-- many times.
-	--
-	-- In this case, we create a function that lets us more easily define mappings specific
-	-- for LSP related items. It sets the mode, buffer and description for us each time.
 	local nmap = function(keys, func, desc)
 		if desc then
 			desc = "LSP: " .. desc
@@ -100,3 +83,34 @@ mason_lspconfig.setup_handlers({
 		})
 	end,
 })
+
+local function organize_imports()
+	local params = {
+		command = "_typescript.organizeImports",
+		arguments = { vim.api.nvim_buf_get_name(0) },
+		title = "",
+	}
+	vim.lsp.buf.execute_command(params)
+end
+
+require("lspconfig").tsserver.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	commands = {
+		OrganizeImports = {
+			organize_imports,
+			description = "Organize Imports",
+		},
+	},
+})
+
+-- mason_lspconfig.tsserver.setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- 	commands = {
+-- 		OrganizeImports = {
+-- 			organize_imports,
+-- 			description = "Organize Imports",
+-- 		},
+-- 	},
+-- })
