@@ -1,5 +1,4 @@
 local harpoon = require("harpoon")
-local vim = vim
 
 harpoon:setup()
 

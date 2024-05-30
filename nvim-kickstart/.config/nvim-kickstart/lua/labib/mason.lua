@@ -104,8 +104,6 @@ require("lspconfig").tsserver.setup({
 	},
 })
 
-----------------------
-
 -- Function to stop the clangd server and unmap its keybindings
 local function stop_clangd()
 	local clients = vim.lsp.get_active_clients()

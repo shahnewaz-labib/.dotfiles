@@ -1,4 +1,3 @@
-local vim = vim
 -- remaps
 vim.keymap.set("n", "<leader>q", ":qa!<CR>")
 vim.keymap.set("n", "<leader><BS>", ":NvimTreeToggle<CR>")
@@ -40,9 +39,6 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- map("i", "<C-y>", 'copilot#Accept("")', { script = true, expr = true }) do this map using vim.keymap
 vim.keymap.set('i', '<C-l>', 'copilot#Accept("")',
   { noremap = true, silent = true, expr = true, replace_keycodes = false })
-
-vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- keep the block selected and retain correct indentation
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

@@ -1,5 +1,3 @@
-local vim = vim
-
 require("labib.lazy")
 require("labib.mason")
 require("labib.treesitter")
@@ -14,8 +12,6 @@ require("labib.keymaps")
 require("labib.toggleterm")
 require("labib.nvim-ts-autotag")
 
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
