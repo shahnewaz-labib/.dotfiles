@@ -103,3 +103,37 @@ require("lspconfig").tsserver.setup({
 		},
 	},
 })
+
+----------------------
+
+-- Function to stop the clangd server and unmap its keybindings
+local function stop_clangd()
+	local clients = vim.lsp.get_active_clients()
+	for _, client in ipairs(clients) do
+		if client.name == "clangd" then
+			client.stop()
+		end
+	end
+
+	-- Optionally unmap clangd-specific keybindings
+	local bufnr = vim.api.nvim_get_current_buf()
+	vim.api.nvim_buf_del_keymap(bufnr, "n", "<leader>rn") -- Rename
+	vim.api.nvim_buf_del_keymap(bufnr, "n", "<leader>ca") -- Code Action
+	vim.api.nvim_buf_del_keymap(bufnr, "n", "gd") -- Go to Definition
+	vim.api.nvim_buf_del_keymap(bufnr, "n", "gr") -- Go to References
+	vim.api.nvim_buf_del_keymap(bufnr, "n", "gI") -- Go to Implementation
+	vim.api.nvim_buf_del_keymap(bufnr, "n", "<leader>D") -- Type Definition
+	vim.api.nvim_buf_del_keymap(bufnr, "n", "<leader>ds") -- Document Symbols
+	vim.api.nvim_buf_del_keymap(bufnr, "n", "<leader>ws") -- Workspace Symbols
+	vim.api.nvim_buf_del_keymap(bufnr, "n", "K") -- Hover Documentation
+	vim.api.nvim_buf_del_keymap(bufnr, "n", "<C-k>") -- Signature Documentation
+	vim.api.nvim_buf_del_keymap(bufnr, "n", "gD") -- Go to Declaration
+	vim.api.nvim_buf_del_keymap(bufnr, "n", "<leader>wa") -- Add Workspace Folder
+	vim.api.nvim_buf_del_keymap(bufnr, "n", "<leader>wr") -- Remove Workspace Folder
+	vim.api.nvim_buf_del_keymap(bufnr, "n", "<leader>wl") -- List Workspace Folders
+end
+
+-- Create a user command to disable clangd
+vim.api.nvim_create_user_command("DisableClangd", stop_clangd, { nargs = 0 })
+
+-- Now you can use the command :DisableClangd to stop clangd
