@@ -11,12 +11,14 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
+vim.opt.cursorline = true
+
 vim.opt.guicursor = ""
 
 -- colors
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-vim.cmd([[ highlight clear SignColumn ]])
+-- vim.cmd([[ highlight clear SignColumn ]])
 
 vim.g.copilot_assume_mapped = true
 
