@@ -2,8 +2,10 @@
 
 # Default colors
 [colors.primary]
-background = "#1a1b26"
-foreground = "#a9b1d6"
+# background = "#1a1b26"
+background = "#0C0C0C"
+# foreground = "#a9b1d6"
+foreground = "#CCCCCC"
 
 # Cursor colors
 [colors.cursor]
