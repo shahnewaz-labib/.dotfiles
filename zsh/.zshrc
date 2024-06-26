@@ -125,7 +125,6 @@ alias showip="curl -s https://api.ipify.org"
 alias topdf="soffice --headless --convert-to pdf"
 alias lgout="loginctl terminate-session $(loginctl session-status | head -n 1 | awk '{print $1}')"
 alias setupconda="source /opt/miniconda3/etc/profile.d/conda.sh"
-alias vim="nvim ."
 alias v="nvim ."
 alias nvconf="nvim ~/.config/nvim"
 alias t="tmux"
@@ -136,7 +135,6 @@ alias py="python"
 alias wcc="warp-cli connect"
 alias wcd="warp-cli disconnect"
 # alias cat="bat"
-# alias gs="git status"
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then 
   exec startx &>/dev/null 

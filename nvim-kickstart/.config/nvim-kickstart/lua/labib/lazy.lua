@@ -116,8 +116,16 @@ require("lazy").setup({
 		"ellisonleao/gruvbox.nvim",
 		priority = 1000,
 		-- config = function()
-		-- vim.cmd.colorscheme 'gruvbox'
-		-- end
+		-- 	vim.cmd.colorscheme("gruvbox")
+		-- 	require("gruvbox").setup({
+		-- 		dim_inactive_windows = false,
+		-- 		disable_background = true,
+		-- 		extend_background_behind_borders = true,
+		-- 	})
+		-- 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		-- 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		-- 	vim.cmd.colorscheme("gruvbox")
+		-- end,
 	},
 
 	{
@@ -131,7 +139,7 @@ require("lazy").setup({
 			})
 			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-			vim.cmd.colorscheme("rose-pine-moon")
+			vim.cmd.colorscheme("rose-pine-main")
 		end,
 	},
 
