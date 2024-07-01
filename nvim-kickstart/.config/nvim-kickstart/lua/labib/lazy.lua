@@ -113,34 +113,22 @@ require("lazy").setup({
 	},
 
 	{
-		"ellisonleao/gruvbox.nvim",
+		"ChristianChiarulli/nvcode-color-schemes.vim",
 		priority = 1000,
-		-- config = function()
-		-- 	vim.cmd.colorscheme("gruvbox")
-		-- 	require("gruvbox").setup({
-		-- 		dim_inactive_windows = false,
-		-- 		disable_background = true,
-		-- 		extend_background_behind_borders = true,
-		-- 	})
-		-- 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-		-- 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-		-- 	vim.cmd.colorscheme("gruvbox")
-		-- end,
+		config = function()
+			vim.cmd.colorscheme("nvcode")
+
+			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+			vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+			vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+			vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
+			vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
+		end,
 	},
 
 	{
 		"rose-pine/neovim",
-		priority = 1000,
-		config = function()
-			require("rose-pine").setup({
-				dim_inactive_windows = false,
-				disable_background = true,
-				extend_background_behind_borders = true,
-			})
-			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-			vim.cmd.colorscheme("rose-pine-main")
-		end,
 	},
 
 	{

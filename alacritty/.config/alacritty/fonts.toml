@@ -8,24 +8,13 @@ builtin_box_drawing = true
 # italic = { family = "JetBrainsMono NF", style = "Italic" }
 # bold_italic = { family = "JetBrainsMono NF", style = "Bold Italic" }
 
-# normal = { family = "NotoSansMono", style = "Regular" }
-# bold = { family = "JetBrainsMono NF", style = "Bold" }
-# italic = { family = "JetBrainsMono NF", style = "Italic" }
-# bold_italic = { family = "JetBrainsMono NF", style = "Bold Italic" }
+# normal = { family = "SF Mono", style = "Regular" }
+# bold = { family = "SF Mono", style = "Bold" }
+# italic = { family = "SF Mono", style = "Regular" }
+# bold_italic = { family = "SF Mono", style = "Regular" }
 
-normal = { family = "SF Mono", style = "Regular" }
-bold = { family = "SF Mono", style = "Bold" }
-italic = { family = "SF Mono", style = "Regular" }
-bold_italic = { family = "SF Mono", style = "Regular" }
-
-
-# normal = { family = "DejavuSansMono", style = "Regular" }
-# bold = { family = "Dejavu Sans Mono", style = "Bold" }
-# italic = { family = "Dejavu Sans Mono", style = "Regular" }
-# bold_italic = { family = "Dejavu Sans Mono", style = "Regular" }
-
-# normal = { family = "Monaspace Argon", style = "Regular" }
-# bold = { family = "Monaspace Argon", style = "Bold" }
-# italic = { family = "Monaspace Argon", style = "italic" }
-# bold_italic = { family = "Monaspace Argon", style = "Bold Italic" }
+normal = { family = "Liga SFMono Nerd Font", style = "Regular" }
+bold = { family = "Liga SFMono Nerd Font", style = "Bold" }
+italic = { family = "Liga SFMono Nerd Font", style = "SemiBold Italic" }
+bold_italic = { family = "Liga SFMono Nerd Font", style = "Bold Italic" }
 
