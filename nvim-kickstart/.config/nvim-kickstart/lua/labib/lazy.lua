@@ -95,6 +95,16 @@ require("lazy").setup({
 	},
 
 	{
+		"m4xshen/smartcolumn.nvim",
+		opts = {},
+	},
+
+	{
+		"cappyzawa/trim.nvim",
+		opts = {},
+	},
+
+	{
 		"lewis6991/gitsigns.nvim",
 		opts = {
 			signs = {
@@ -133,10 +143,12 @@ require("lazy").setup({
 
 	{
 		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		event = "VeryLazy",
 		opts = {
 			options = {
-				icons_enabled = false,
-				theme = "everforest",
+				icons_enabled = true,
+				theme = "auto",
 				component_separators = "|",
 				section_separators = "",
 			},
@@ -200,7 +212,7 @@ require("lazy").setup({
 	},
 
 	-- "gc" to comment visual regions/lines
-	{ "numToStr/Comment.nvim", opts = {} },
+	{ "numToStr/Comment.nvim",                      opts = {} },
 	{ "JoosepAlviste/nvim-ts-context-commentstring" },
 
 	{

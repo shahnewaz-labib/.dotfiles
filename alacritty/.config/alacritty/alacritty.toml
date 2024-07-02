@@ -1,11 +1,182 @@
-import = ["~/.config/alacritty/rice-colors.toml", "~/.config/alacritty/fonts.toml"]
+# import = ["~/.config/alacritty/rice-colors.toml", "~/.config/alacritty/fonts.toml"]
+#
+# live_config_reload = true
+#
+# [cursor]
+# blink_interval = 550
+# unfocused_hollow = false
+# thickness = 0.15
+#
+# [cursor.style]
+# blinking = "On"
+# shape = "Block"
+#
+# [env]
+# TERM = "xterm-256color"
+#
+# [[keyboard.bindings]]
+# action = "Paste"
+# key = "V"
+# mods = "Control|Shift"
+#
+# [[keyboard.bindings]]
+# action = "Copy"
+# key = "C"
+# mods = "Control|Shift"
+#
+# [[keyboard.bindings]]
+# action = "SpawnNewInstance"
+# key = "N"
+# mods = "Control|Shift"
+#
+# [[keyboard.bindings]]
+# action = "PasteSelection"
+# key = "Insert"
+# mods = "Shift"
+#
+# [[keyboard.bindings]]
+# action = "ResetFontSize"
+# key = "Key0"
+# mods = "Control"
+#
+# [[keyboard.bindings]]
+# action = "IncreaseFontSize"
+# key = "Equals"
+# mods = "Control"
+#
+# [[keyboard.bindings]]
+# action = "IncreaseFontSize"
+# key = "Plus"
+# mods = "Control"
+#
+# [[keyboard.bindings]]
+# action = "DecreaseFontSize"
+# key = "Minus"
+# mods = "Control"
+#
+# [[keyboard.bindings]]
+# action = "ToggleFullscreen"
+# key = "F11"
+# mods = "None"
+#
+# [[keyboard.bindings]]
+# action = "Paste"
+# key = "Paste"
+# mods = "None"
+#
+# [[keyboard.bindings]]
+# action = "Copy"
+# key = "Copy"
+# mods = "None"
+#
+# [[keyboard.bindings]]
+# action = "ClearLogNotice"
+# key = "L"
+# mods = "Control"
+#
+# [[keyboard.bindings]]
+# chars = "\f"
+# key = "L"
+# mods = "Control"
+#
+# [[keyboard.bindings]]
+# action = "ScrollPageUp"
+# key = "PageUp"
+# mode = "~Alt"
+# mods = "None"
+#
+# [[keyboard.bindings]]
+# action = "ScrollPageDown"
+# key = "PageDown"
+# mode = "~Alt"
+# mods = "None"
+#
+# [[keyboard.bindings]]
+# action = "ScrollToTop"
+# key = "Home"
+# mode = "~Alt"
+# mods = "Shift"
+#
+# [[keyboard.bindings]]
+# action = "ScrollToBottom"
+# key = "End"
+# mode = "~Alt"
+# mods = "Shift"
+#
+# [scrolling]
+# history = 5000
+#
+# [shell]
+# args = ["--login"]
+# program = "/usr/bin/zsh"
+#
+# [window]
+# decorations = "none"
+# dynamic_padding = false
+# opacity = 0.95
+# title = "Alacritty"
+#
+# [window.class]
+# general = "Alacritty"
+# instance = "Alacritty"
+#
+# [window.padding]
+# x = 6
+# y = 6
+
+import = [
+  "~/.config/alacritty/themes/themes/tokyo-night.toml"
+]
 
 live_config_reload = true
 
+[bell]
+animation = "EaseOutExpo"
+duration = 0
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+# [[colors.indexed_colors]]
+# color = "0xF8BD96"
+# index = 16
+#
+# [[colors.indexed_colors]]
+# color = "0xF5E0DC"
+# index = 17
+#
+# [colors.bright]
+# black = "0x988BA2"
+# blue = "0x96CDFB"
+# cyan = "0x89DCEB"
+# green = "0xABE9B3"
+# magenta = "0xF5C2E7"
+# red = "0xF28FAD"
+# white = "0xD9E0EE"
+# yellow = "0xFAE3B0"
+#
+# [colors.cursor]
+# cursor = "0xF5E0DC"
+# text = "0x1E1D2F"
+#
+# [colors.normal]
+# black = "0x6E6C7E"
+# blue = "0x96CDFB"
+# cyan = "0x89DCEB"
+# green = "0xABE9B3"
+# magenta = "0xF5C2E7"
+# red = "0xF28FAD"
+# white = "0xD9E0EE"
+# yellow = "0xFAE3B0"
+#
+# [colors.primary]
+# background = "0x1E1D2F"
+# foreground = "0xD9E0EE"
+
 [cursor]
-blink_interval = 550
+blink_interval = 500
+blink_timeout = 5
 unfocused_hollow = false
-thickness = 0.15
 
 [cursor.style]
 blinking = "On"
@@ -14,112 +185,52 @@ shape = "Block"
 [env]
 TERM = "xterm-256color"
 
-[[keyboard.bindings]]
-action = "Paste"
-key = "V"
-mods = "Control|Shift"
+[font]
+size = 9
 
-[[keyboard.bindings]]
-action = "Copy"
-key = "C"
-mods = "Control|Shift"
+[font.normal]
+family = "Liga SFMono Nerd Font"
+style = "Regular"
 
-[[keyboard.bindings]]
-action = "SpawnNewInstance"
-key = "N"
-mods = "Control|Shift"
+[font.italic]
+family = "Liga SFMono Nerd Font"
+style = "Italic"
 
-[[keyboard.bindings]]
+[font.bold]
+family = "Liga SFMono Nerd Font"
+style = "Bold"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.offset]
+x = 0
+y = 0
+
+[mouse]
+hide_when_typing = true
+
+[[mouse.bindings]]
 action = "PasteSelection"
-key = "Insert"
-mods = "Shift"
+mouse = "Middle"
 
-[[keyboard.bindings]]
-action = "ResetFontSize"
-key = "Key0"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "IncreaseFontSize"
-key = "Equals"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "IncreaseFontSize"
-key = "Plus"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "DecreaseFontSize"
-key = "Minus"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "ToggleFullscreen"
-key = "F11"
-mods = "None"
-
-[[keyboard.bindings]]
-action = "Paste"
-key = "Paste"
-mods = "None"
-
-[[keyboard.bindings]]
-action = "Copy"
-key = "Copy"
-mods = "None"
-
-[[keyboard.bindings]]
-action = "ClearLogNotice"
-key = "L"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\f"
-key = "L"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "ScrollPageUp"
-key = "PageUp"
-mode = "~Alt"
-mods = "None"
-
-[[keyboard.bindings]]
-action = "ScrollPageDown"
-key = "PageDown"
-mode = "~Alt"
-mods = "None"
-
-[[keyboard.bindings]]
-action = "ScrollToTop"
-key = "Home"
-mode = "~Alt"
-mods = "Shift"
-
-[[keyboard.bindings]]
-action = "ScrollToBottom"
-key = "End"
-mode = "~Alt"
-mods = "Shift"
-
-[scrolling]
-history = 5000
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [shell]
-args = ["--login"]
-program = "/usr/bin/zsh"
+program = "/bin/zsh"
 
 [window]
-decorations = "none"
-dynamic_padding = false
-opacity = 0.95
-title = "Alacritty"
+decorations = "full"
+dynamic_title = true
+option_as_alt = "Both"
+# startup_mode = "Maximized"
 
-[window.class]
-general = "Alacritty"
-instance = "Alacritty"
+[window.dimensions]
+columns = 160
+lines = 80
 
 [window.padding]
-x = 6
-y = 6
+x = 4
+y = 4
