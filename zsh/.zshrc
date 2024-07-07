@@ -3,13 +3,13 @@
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.scripts/:$PATH
-export PATH=/opt/flutter/bin:$PATH 
-export PATH=$HOME/go/bin/:$PATH 
+export PATH=/opt/flutter/bin:$PATH
+export PATH=$HOME/go/bin/:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
-export BROWSER=brave
+export BROWSER=google-chrome-stable
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
 
@@ -82,7 +82,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(zsh-autosuggestions zsh-syntax-highlighting fzf)
- 
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -136,8 +136,8 @@ alias wcc="warp-cli connect"
 alias wcd="warp-cli disconnect"
 # alias cat="bat"
 
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then 
-  exec startx &>/dev/null 
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+  exec startx &>/dev/null
 fi
 
 # bun completions

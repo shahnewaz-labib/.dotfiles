@@ -28,13 +28,13 @@
 
 # polybar
 exec_always --no-startup-id ~/.config/polybar/polybar.sh &
-bindsym $mod+Shift+b exec --no-startup-id polybar-msg cmd toggle 
+bindsym $mod+Shift+b exec --no-startup-id polybar-msg cmd toggle
 
 # screenshot
 bindsym $mod+p exec flameshot gui --clipboard
 
 # browser
-bindsym $mod+b exec brave
+bindsym $mod+b exec google-chrome-stable
 
 # autostart
 exec --no-startup-id xset r rate 300 30
@@ -260,7 +260,7 @@ mode "$mode_system" {
 # finds out, if available)
 #
 # Bumblebee-status themes
-# albiceleste-powerline 
+# albiceleste-powerline
 # default
 # dracula-powerline
 # firefox-dark-powerline
@@ -271,18 +271,18 @@ mode "$mode_system" {
 # gruvbox-powerline-light
 # iceberg
 # iceberg-contrast
-# iceberg-dark-powerline 
-# iceberg-powerline 
-# iceberg-rainbow 
-# night-powerline 
-# nord-colorful 
+# iceberg-dark-powerline
+# iceberg-powerline
+# iceberg-rainbow
+# night-powerline
+# nord-colorful
 # nord-powerline
-# onedark-powerline 
+# onedark-powerline
 # powerline
-# powerline-pango 
-# rastafari-powerline 
+# powerline-pango
+# rastafari-powerline
 # sac_red
-# solarized 
+# solarized
 # solarized-dark-awesome [X]
 # solarized-powerline
 # wal-powerline
@@ -294,7 +294,7 @@ mode "$mode_system" {
 
 #bar {
 #   # mode dock|hide|invisible
-#   mode dock 
+#   mode dock
 #   modifier none
 #   font pango:MesloLGS Nerd Font 10
 #   position top
