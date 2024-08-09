@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ip="1.1.1.1"
+ip="8.8.8.8"
 latency=$(ping -c 1 $ip 2>&1 | grep "time=" | awk '{print $7}' | cut -d '=' -f 2)
 
 if [ -n "$latency" ]; then
@@ -8,4 +8,3 @@ if [ -n "$latency" ]; then
 else
     echo "no internet"
 fi
-
