@@ -126,7 +126,7 @@ require("lazy").setup({
 		"ChristianChiarulli/nvcode-color-schemes.vim",
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("nvcode")
+			-- vim.cmd.colorscheme("nvcode")
 
 			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
@@ -212,7 +212,7 @@ require("lazy").setup({
 	},
 
 	-- "gc" to comment visual regions/lines
-	{ "numToStr/Comment.nvim",                      opts = {} },
+	{ "numToStr/Comment.nvim", opts = {} },
 	{ "JoosepAlviste/nvim-ts-context-commentstring" },
 
 	{
