@@ -1,33 +1,87 @@
-import = [
-  "~/.config/alacritty/themes/themes/tokyo-night.toml"
-]
+[env]
+TERM = "xterm-256color"
+WINIT_X11_SCALE_FACTOR = "1"
 
-live_config_reload = true
+[window]
+dynamic_padding = true
+decorations = "full"
+title = "Alacritty@CachyOS"
+opacity = 0.8
+decorations_theme_variant = "Dark"
 
-[bell]
-animation = "EaseOutExpo"
-duration = 0
+[window.dimensions]
+columns = 100
+lines = 30
+
+[window.class]
+instance = "Alacritty"
+general = "Alacritty"
+
+[scrolling]
+history = 10000
+multiplier = 3
 
 [colors]
 draw_bold_text_with_bright_colors = true
 
-[cursor]
-blink_interval = 500
-blink_timeout = 5
-unfocused_hollow = false
+# [colors.primary]
+# background = "0x2E3440"
+# foreground = "0xD8DEE9"
+#
+# [colors.normal]
+# black = "0x3B4252"
+# red = "0xBF616A"
+# green = "0xA3BE8C"
+# yellow = "0xEBCB8B"
+# blue = "0x81A1C1"
+# magenta = "0xB48EAD"
+# cyan = "0x88C0D0"
+# white = "0xE5E9F0"
+#
+# [colors.bright]
+# black = "0x4C566A"
+# red = "0xBF616A"
+# green = "0xA3BE8C"
+# yellow = "0xEBCB8B"
+# blue = "0x81A1C1"
+# magenta = "0xB48EAD"
+# cyan = "0x8FBCBB"
+# white = "0xECEFF4"
 
-[cursor.style]
-blinking = "On"
-shape = "Block"
+# new
+[colors.primary]
+  foreground = "#cdd6f4"
+  background = "#0a0a0a"
 
-[env]
-TERM = "xterm-256color"
+[colors.bright]
+  black = "#585b70"
+  red = "#f38ba8"
+  green = "#a6e3a1"
+  yellow = "#f9e2af"
+  blue = "#89b4fa"
+  magenta = "#f5c2e7"
+  cyan = "#7dcfff"
+  white = "#f4f4f5"
+
+[colors.normal]
+  black = "#45475a"
+  red = "#ef688e"
+  green = "#8ada83"
+  yellow = "#f6d488"
+  blue = "#649cf8"
+  magenta = "#ef9cd8"
+  cyan = "#57c1ff"
+  white = "#e4e4e7"
+# new end
 
 [font]
-size = 9
+size = 14
 
 [font.normal]
 family = "JetBrainsMono Nerd Font Mono"
+# family = "Liga SFMono Nerd Font"
+# family = "SFMono Nerd Font"
+
 style = "Regular"
 
 [font.italic]
@@ -38,37 +92,105 @@ style = "Italic"
 family = "JetBrainsMono Nerd Font Mono"
 style = "Bold"
 
-[font.glyph_offset]
-x = 0
-y = 0
+[font.bold_italic]
+family = "JetBrains Mono Nerd Font"
+style = "Bold Italic"
 
-[font.offset]
-x = 0
-y = 0
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+save_to_clipboard = true
+
+[cursor]
+blink_interval = 600
+blink_timeout = 100
+unfocused_hollow = false
+
+[cursor.style]
+blinking = "On"
+shape = "Block"
 
 [mouse]
 hide_when_typing = true
 
 [[mouse.bindings]]
-action = "PasteSelection"
 mouse = "Middle"
+action = "PasteSelection"
 
-[selection]
-semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+[keyboard]
+[[keyboard.bindings]]
+key = "Paste"
+action = "Paste"
 
-[shell]
-program = "/bin/zsh"
+[[keyboard.bindings]]
+key = "Copy"
+action = "Copy"
 
-[window]
-decorations = "full"
-dynamic_title = true
-option_as_alt = "Both"
-opacity = 0.95
+[[keyboard.bindings]]
+key = "L"
+mods = "Control"
+action = "ClearLogNotice"
 
-[window.dimensions]
-columns = 160
-lines = 80
+[[keyboard.bindings]]
+key = "L"
+mods = "Control"
+mode = "~Vi"
+chars = "\f"
 
-[window.padding]
-x = 4
-y = 4
+[[keyboard.bindings]]
+key = "PageUp"
+mods = "Shift"
+mode = "~Alt"
+action = "ScrollPageUp"
+
+[[keyboard.bindings]]
+key = "PageDown"
+mods = "Shift"
+mode = "~Alt"
+action = "ScrollPageDown"
+
+[[keyboard.bindings]]
+key = "Home"
+mods = "Shift"
+mode = "~Alt"
+action = "ScrollToTop"
+
+[[keyboard.bindings]]
+key = "End"
+mods = "Shift"
+mode = "~Alt"
+action = "ScrollToBottom"
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control|Shift"
+action = "Paste"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Control|Shift"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "F"
+mods = "Control|Shift"
+action = "SearchForward"
+
+[[keyboard.bindings]]
+key = "B"
+mods = "Control|Shift"
+action = "SearchBackward"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Control|Shift"
+mode = "Vi"
+action = "ClearSelection"
+
+[[keyboard.bindings]]
+key = "Key0"
+mods = "Control"
+action = "ResetFontSize"
+
+[general]
+live_config_reload = true
+working_directory = "None"
