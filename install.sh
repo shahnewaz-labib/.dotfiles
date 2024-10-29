@@ -21,4 +21,3 @@ else
         bash "$script"
     done
 fi
-
