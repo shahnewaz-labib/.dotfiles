@@ -13,6 +13,16 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	{
+		"sainnhe/sonokai",
+		priority = 1000,
+		config = function()
+			vim.g.sonokai_transparent_background = "1"
+			vim.g.sonokai_style = "andromeda"
+			vim.g.sonokai_enable_italic = 1
+			vim.cmd.colorscheme("sonokai")
+		end,
+	},
+	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		init = function()
@@ -20,6 +30,15 @@ require("lazy").setup({
 			vim.o.timeoutlen = 300
 		end,
 		opts = {},
+	},
+
+	{
+		"lervag/vimtex",
+		lazy = false, -- we don't want to lazy load VimTeX
+		init = function()
+			vim.g.vimtex_view_method = "general"
+			vim.g.vimtex_view_general_viewer = "evince"
+		end,
 	},
 
 	{
@@ -31,10 +50,6 @@ require("lazy").setup({
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		opts = {},
-	},
-
-	{
-		"ThePrimeagen/vim-be-good",
 	},
 
 	{
@@ -143,6 +158,7 @@ require("lazy").setup({
 
 	{
 		"nvim-lualine/lualine.nvim",
+		enabled = false,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		event = "VeryLazy",
 		opts = {

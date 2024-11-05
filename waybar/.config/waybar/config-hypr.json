@@ -100,7 +100,7 @@
   },
 
   "memory": {
-    "interval": 30,
+    "interval": 2,
     "format": "  {used:0.2f} / {total:0.0f} GB",
     "on-click": "alacritty -e btop"
   },
@@ -128,7 +128,9 @@
     "on-click-right": "wl-copy $(ip address show up scope global | grep inet6 | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c6-)",
     "tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}\n{ifname}\n{ipaddr}/{cidr}\n",
     "tooltip-format-wifi": " {essid} {frequency}MHz\nStrength: {signaldBm}dBm ({signalStrength}%)\nIP: {ipaddr}/{cidr}\n {bandwidthUpBits}  {bandwidthDownBits}",
-    "interval": 2
+    "interval": 2,
+    "max-length": 25,
+    "min-length": 25
   },
   "custom/storage": {
     "format": " {}",
@@ -237,7 +239,7 @@
   },
 
   "cpu": {
-    "interval": 1,
+    "interval": 2,
     //"format": " {}%", // Icon: microchip
     "format": "{max_frequency}GHz <span color=\"darkgray\">| {usage}%</span>",
     "max-length": 13,
