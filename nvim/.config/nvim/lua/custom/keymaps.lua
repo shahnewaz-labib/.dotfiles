@@ -1,14 +1,9 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- Close everything
+vim.keymap.set('i', '<C-l>', 'copilot#Accept("")', { noremap = true, silent = true, expr = true, replace_keycodes = false })
 vim.keymap.set('n', '<leader>q', ':qa!<CR>')
-
--- Copying
 vim.keymap.set('n', '<leader>Y', [[gg"+yG'']])
-
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps

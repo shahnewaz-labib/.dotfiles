@@ -6,6 +6,7 @@ require 'custom.autocommands'
 require('lazy').setup({
   'tpope/vim-sleuth',
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  'github/copilot.vim',
 
   require 'custom.autocompletion',
   require 'custom.autoformat',
@@ -14,6 +15,7 @@ require('lazy').setup({
   require 'custom.debug',
   require 'custom.gitsigns',
   require 'custom.gitsigns',
+  require 'custom.harpoon',
   require 'custom.indent_line',
   require 'custom.lint',
   require 'custom.lsp',
