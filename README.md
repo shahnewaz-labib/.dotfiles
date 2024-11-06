@@ -1,4 +1,6 @@
 # .dotfiles
+[Old neovim config](https://github.com/shahnewaz-labib/.dotfiles/tree/82d14383c23116005b9e66654408c80a7d93a934/nvim/.config/nvim)
+
 ## Installer
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/shahnewaz-labib/.dotfiles/main/install.sh)"
