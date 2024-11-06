@@ -1,32 +1,43 @@
-require("labib.lazy")
-require("labib.mason")
-require("labib.treesitter")
-require("labib.nvim-cmp")
-require("labib.none-ls")
-require("labib.nvimtree")
-require("labib.set")
-require("labib.telescope")
-require("labib.harpoon")
-require("labib.neodev")
-require("labib.keymaps")
-require("labib.toggleterm")
-require("labib.nvim-ts-autotag")
+require 'custom'
+require 'custom.options'
+require 'custom.keymaps'
+require 'custom.autocommands'
 
-local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
-vim.api.nvim_create_autocmd("TextYankPost", {
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-	group = highlight_group,
-	pattern = "*",
+require('lazy').setup({
+  'tpope/vim-sleuth',
+  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+
+  require 'custom.autocompletion',
+  require 'custom.autoformat',
+  require 'custom.autopairs',
+  require 'custom.colorscheme',
+  require 'custom.debug',
+  require 'custom.gitsigns',
+  require 'custom.gitsigns',
+  require 'custom.indent_line',
+  require 'custom.lint',
+  require 'custom.lsp',
+  require 'custom.misc',
+  require 'custom.neo-tree',
+  require 'custom.telescope',
+  require 'custom.treesitter',
+  require 'custom.whichkey',
+}, {
+  ui = {
+    icons = vim.g.have_nerd_font and {} or {
+      cmd = '⌘',
+      config = '🛠',
+      event = '📅',
+      ft = '📂',
+      init = '⚙',
+      keys = '🗝',
+      plugin = '🔌',
+      runtime = '💻',
+      require = '🌙',
+      source = '📄',
+      start = '🚀',
+      task = '📌',
+      lazy = '💤 ',
+    },
+  },
 })
-
--- stop annoying warnings
-local notify = vim.notify
-vim.notify = function(msg, ...)
-	if msg:match("warning: multiple different client offset_encodings") then
-		return
-	end
-
-	notify(msg, ...)
-end
