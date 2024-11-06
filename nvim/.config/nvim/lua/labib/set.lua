@@ -1,8 +1,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.g.splitbelow = true
-vim.g.splitright = true
+vim.o.splitbelow = true
+vim.o.splitright = true
 vim.g.splitkeep = "cursor"
 
 vim.g.autoindent = true
