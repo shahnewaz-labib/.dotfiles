@@ -1,12 +1,7 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
-vim.keymap.set(
-  'i',
-  '<C-l>',
-  'copilot#Accept("")',
-  { noremap = true, silent = true, expr = true, replace_keycodes = false }
-)
+vim.keymap.set('i', '<C-l>', 'copilot#Accept("")', { noremap = true, silent = true, expr = true, replace_keycodes = false })
 vim.keymap.set('n', '<leader>q', ':qa!<CR>')
 vim.keymap.set('n', '<leader>Y', [[gg"+yG'']])
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -42,11 +37,7 @@ vim.keymap.set('n', '<leader><BS>', ':NvimTreeToggle<CR>')
 
 -- copy from clipboard to input file
 vim.keymap.set('n', '<F4>', '<cmd>silent !xclip -o -sel clip > ~/codes/X/in<CR>')
-vim.keymap.set(
-  'n',
-  '<F6>',
-  '<cmd>!g++ % -D LOCAL -std=c++17 -o ~/codes/X/program && (timeout 5 ~/codes/X/program < ~/codes/X/in) >  ~/codes/X/out<CR>'
-)
+vim.keymap.set('n', '<F6>', '<cmd>!g++ % -D LOCAL -std=c++17 -o ~/codes/X/program && (timeout 5 ~/codes/X/program < ~/codes/X/in) >  ~/codes/X/out<CR>')
 
 -- copy template to current file
 vim.keymap.set('n', '<leader>t', ':!cp ~/codes/cp/template.cpp %<CR><CR>')
@@ -90,11 +81,7 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 
 -- copy from clipboard to input file
 vim.keymap.set('n', '<F4>', '<cmd>silent !xclip -o -sel clip > ~/codes/X/in<CR>')
-vim.keymap.set(
-  'n',
-  '<F6>',
-  '<cmd>!g++ % -D LOCAL -std=c++17 -o ~/codes/X/program && (timeout 5 ~/codes/X/program < ~/codes/X/in) >  ~/codes/X/out<CR>'
-)
+vim.keymap.set('n', '<F6>', '<cmd>!g++ % -D LOCAL -std=c++17 -o ~/codes/X/program && (timeout 5 ~/codes/X/program < ~/codes/X/in) >  ~/codes/X/out<CR>')
 
 -- copy template to current file
 vim.keymap.set('n', '<leader>t', ':!cp ~/codes/cp/template.cpp %<CR><CR>')
@@ -113,4 +100,3 @@ vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 vim.keymap.set('i', '<C-c>', '<Esc>')
 
 vim.keymap.set('n', 'Q', '<nop>')
-vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
