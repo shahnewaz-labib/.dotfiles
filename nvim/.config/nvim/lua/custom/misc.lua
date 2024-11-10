@@ -32,6 +32,29 @@ return {
         return '%2l:%-2v'
       end
 
+      -- Animate stuff
+      local is_many_wins = function(sizes_from)
+        return vim.tbl_count(sizes_from) >= 3
+      end
+      local animate = require 'mini.animate'
+      animate.setup {
+        scroll = {
+          timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
+          subscroll = animate.gen_subscroll.equal { max_output_steps = 120 },
+        },
+        cursor = {
+          enable = true,
+          timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
+          path = animate.gen_path.angle(),
+        },
+        -- Window resize
+        resize = {
+          enable = true,
+          timing = animate.gen_timing.linear { duration = 200, unit = 'total' },
+          subresize = animate.gen_subresize.equal { predicate = is_many_wins },
+        },
+      }
+
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
