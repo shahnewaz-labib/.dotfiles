@@ -16,3 +16,14 @@ vim.api.nvim_create_autocmd('UiEnter', {
     end
   end,
 })
+
+-- stop annoying warnings
+local notify = vim.notify
+---@diagnostic disable-next-line
+vim.notify = function(msg, ...)
+  if msg:match 'warning: multiple different client offset_encodings' then
+    return
+  end
+
+  notify(msg, ...)
+end
