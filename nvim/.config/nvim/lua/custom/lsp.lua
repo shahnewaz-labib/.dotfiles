@@ -42,6 +42,14 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
+          -- Keybind to trigger import code action when cursor is on a missing import
+          map('gi', function()
+            vim.lsp.buf.code_action {
+              context = { only = { 'source.organizeImports' }, diagnostics = {} },
+              apply = true,
+            }
+          end, 'Go [I]mport Missing Package')
+
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
