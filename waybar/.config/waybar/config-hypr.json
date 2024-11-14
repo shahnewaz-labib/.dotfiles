@@ -38,7 +38,7 @@
     //"pulseaudio",
     "wireplumber",
     "network",
-    "custom/screenshot_t",
+    //"custom/screenshot_t",
     //"custom/power",
     "tray"
   ],
@@ -64,7 +64,7 @@
     "on-click-middle": "pkill -9 wofi"
   },
   "custom/screenshot_t": {
-    "format": "",
+    "format": " ",
     "on-click": "~/.config/hypr/scripts/screenshot_full",
     "on-click-right": "~/.config/hypr/scripts/screenshot_area"
   },
@@ -101,7 +101,7 @@
 
   "memory": {
     "interval": 2,
-    "format": "  {used:0.2f} / {total:0.0f} GB",
+    "format": "  {used:0.2f} GB",
     "on-click": "alacritty -e btop"
   },
 
@@ -115,7 +115,7 @@
     "format": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
     "format-plugged": " {capacity}%",
-    "format-icons": ["", "", "", "", ""]
+    "format-icons": [" ", " ", " ", " ", " "]
   },
   "network": {
     "format-wifi": " {essid} ({bandwidthDownBytes})",
@@ -145,8 +145,7 @@
     "format": "{icon} {percent}%",
     "format-alt": "{percent}% {icon}",
     "format-alt-click": "click-right",
-    //"format-icons": ["", ""],
-    "format-icons": ["", ""],
+    "format-icons": [" ", " ", " ", "󰃝 ", "󰃞 ", "󰃟 ", "󰃠 "],
     "on-scroll-down": "brightnessctl s 1%-",
     "on-scroll-up": "brightnessctl s +1%"
   },
@@ -242,8 +241,8 @@
     "interval": 2,
     //"format": " {}%", // Icon: microchip
     "format": "{max_frequency}GHz <span color=\"darkgray\">| {usage}%</span>",
-    "max-length": 13,
-    "min-length": 13
+    "max-length": 12,
+    "min-length": 12
   },
 
   "mpd": {

@@ -30,10 +30,11 @@ vim.keymap.set('n', '<M-,>', '<c-w>5>')
 vim.keymap.set('n', '<M-t>', '<C-W>+')
 vim.keymap.set('n', '<M-s>', '<C-W>-')
 
----
 -- remaps
-vim.keymap.set('n', '<leader>q', ':qa!<CR>')
-vim.keymap.set('n', '<leader><BS>', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<leader>q', ':qa!<CR>', { desc = 'Quit everything' })
+
+-- clashes with other keymaps
+-- vim.keymap.set('n', '<leader>dd', ':%d<CR>', { desc = 'Nuke the file (delete everything)' })
 
 -- copy from clipboard to input file
 vim.keymap.set('n', '<F4>', '<cmd>silent !xclip -o -sel clip > ~/codes/X/in<CR>')
