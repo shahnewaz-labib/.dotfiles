@@ -1,12 +1,11 @@
 [env]
 TERM = "xterm-256color"
-WINIT_X11_SCALE_FACTOR = "1"
 
 [window]
 dynamic_padding = true
 decorations = "full"
 title = "Alacritty@CachyOS"
-opacity = 0.8
+opacity = 1
 decorations_theme_variant = "Dark"
 
 [window.dimensions]
@@ -21,79 +20,24 @@ general = "Alacritty"
 history = 10000
 multiplier = 3
 
-[colors]
-draw_bold_text_with_bright_colors = true
-
-# [colors.primary]
-# background = "0x2E3440"
-# foreground = "0xD8DEE9"
-#
-# [colors.normal]
-# black = "0x3B4252"
-# red = "0xBF616A"
-# green = "0xA3BE8C"
-# yellow = "0xEBCB8B"
-# blue = "0x81A1C1"
-# magenta = "0xB48EAD"
-# cyan = "0x88C0D0"
-# white = "0xE5E9F0"
-#
-# [colors.bright]
-# black = "0x4C566A"
-# red = "0xBF616A"
-# green = "0xA3BE8C"
-# yellow = "0xEBCB8B"
-# blue = "0x81A1C1"
-# magenta = "0xB48EAD"
-# cyan = "0x8FBCBB"
-# white = "0xECEFF4"
-
-# new
-[colors.primary]
-  foreground = "#cdd6f4"
-  background = "#0a0a0a"
-
-[colors.bright]
-  black = "#585b70"
-  red = "#f38ba8"
-  green = "#a6e3a1"
-  yellow = "#f9e2af"
-  blue = "#89b4fa"
-  magenta = "#f5c2e7"
-  cyan = "#7dcfff"
-  white = "#f4f4f5"
-
-[colors.normal]
-  black = "#45475a"
-  red = "#ef688e"
-  green = "#8ada83"
-  yellow = "#f6d488"
-  blue = "#649cf8"
-  magenta = "#ef9cd8"
-  cyan = "#57c1ff"
-  white = "#e4e4e7"
-# new end
-
 [font]
-size = 14
+size = 20
 
 [font.normal]
-family = "JetBrainsMono Nerd Font Mono"
-# family = "Liga SFMono Nerd Font"
-# family = "SFMono Nerd Font"
+family = "JetBrainsMono NF"
 
 style = "Regular"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font Mono"
+family = "JetBrainsMono NF"
 style = "Italic"
 
 [font.bold]
-family = "JetBrainsMono Nerd Font Mono"
+family = "JetBrainsMono NF"
 style = "Bold"
 
 [font.bold_italic]
-family = "JetBrains Mono Nerd Font"
+family = "JetBrainsMono NF"
 style = "Bold Italic"
 
 [selection]
