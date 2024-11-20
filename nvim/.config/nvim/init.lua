@@ -16,6 +16,7 @@ require('lazy').setup({
   require 'custom.autocompletion',
   require 'custom.autoformat',
   require 'custom.autopairs',
+  -- require 'custom.chatgpt',
   require 'custom.colorscheme',
   require 'custom.debug',
   require 'custom.gitsigns',
