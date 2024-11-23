@@ -12,34 +12,24 @@
   "margin-bottom": 0,
   "margin-right": 10,
 
-  "spacing": 5, // Gaps between modules (4px)
+  "spacing": 1, // Gaps between modules (4px)
 
   "modules-left": [
-    //"custom/rofi",
     "hyprland/workspaces"
-    //"hyprland/submap",
-    //"temperature"
-    //"idle_inhibitor",
-    //"mpd"
-    //"custom/media"
   ],
-  "modules-center": [
-    //"hyprland/window"
-    "clock#date"
-    //"custom/weather"
-    //"custom/gammastep"
-  ],
+  //"modules-center": [
+  //  "clock#date"
+  //],
   "modules-right": [
     "backlight",
     "custom/storage",
+    "custom/storage-home",
     "memory",
     "cpu",
-    "battery",
-    //"pulseaudio",
     "wireplumber",
     "network",
-    //"custom/screenshot_t",
-    //"custom/power",
+    "clock#date",
+    "battery",
     "tray"
   ],
 
@@ -67,22 +57,6 @@
     "format": " ",
     "on-click": "~/.config/hypr/scripts/screenshot_full",
     "on-click-right": "~/.config/hypr/scripts/screenshot_area"
-  },
-
-  "clock#1": {
-    "format": " {:%a}",
-    "tooltip": false,
-    "on-click": "gsimplecal"
-  },
-  "clock#2": {
-    "format": " {:%d-%h-%Y}",
-    "tooltip": false,
-    "on-click": "gsimplecal"
-  },
-  "clock#3": {
-    "format": " {:%H:%M:%S %p}",
-    "tooltip": false,
-    "on-click": "gsimplecal"
   },
 
   "temperature": {
@@ -137,8 +111,16 @@
     "format-alt": "{percentage}% ",
     "format-alt-click": "click-right",
     "return-type": "json",
-    "interval": 60,
+    "interval": 20,
     "exec": "~/.config/waybar/modules/storage.sh"
+  },
+  "custom/storage-home": {
+    "format": " {}",
+    "format-alt": "{percentage}% ",
+    "format-alt-click": "click-right",
+    "return-type": "json",
+    "interval": 20,
+    "exec": "~/.config/waybar/modules/storage-home.sh"
   },
   "backlight": {
     "device": "intel_backlight",
@@ -204,8 +186,7 @@
   },
 
   "clock#date": {
-    "format": "  {:%I:%M %p   %A %e %b}",
-
+    "format": "  {:%I:%M %p   %a %e %b}",
     //"format": "❤️  {:%H:%M   %e %b}", // Icon: calendar-alt
     //"format": "{:%I:%M %p  %A %b %d}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
@@ -277,27 +258,6 @@
     "exec": "$HOME/.scripts/title"
   },
 
-  "hyprland/workspaces": {
-    "all-outputs": true,
-    "format": "{name}",
-    "format-icons": {
-      "1": "一",
-      "2": "二",
-      "3": "三",
-      "4": "四",
-      "5": "五",
-      "6": "六",
-      "7": "七",
-      "8": "八",
-      "9": "九",
-      "10": "十"
-    },
-    "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
-    "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
-    "sort-by-number": true,
-    "active-only": false
-  },
-
   "hyprland/window": {
     "max-length": 100,
     "separate-outputs": true
@@ -350,7 +310,7 @@
   },
 
   "tray": {
-    "icon-size": 15,
-    "spacing": 5
+    "icon-size": 12,
+    "spacing": 2
   }
 }
