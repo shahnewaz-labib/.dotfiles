@@ -12,7 +12,6 @@ export EDITOR=nvim
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
 
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -125,24 +124,26 @@ alias kaq="killall qbittorrent"
 alias kab="killall brave"
 alias copyfile="xclip -sel clip <"
 alias showip="curl -s https://api.ipify.org"
-alias topdf="soffice --headless --convert-to pdf"
-alias lgout="loginctl terminate-session $(loginctl session-status | head -n 1 | awk '{print $1}')"
 alias setupconda="source /opt/miniconda3/etc/profile.d/conda.sh"
-alias v="nvim ."
+alias v="nvim"
 alias nvconf="nvim ~/.config/nvim"
 alias t="tmux"
-alias ls="exa -l"
 alias py="python"
+alias ls="eza --icons=always"
 
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-  exec startx &>/dev/null
-fi
+eval "$(starship init zsh)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 eval "$(zoxide init --cmd cd zsh)"
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+
+# Hishtory Config:
+export PATH="$PATH:/Users/md.shahnewaz.siddique/.hishtory"
+source /Users/md.shahnewaz.siddique/.hishtory/config.zsh
+export PATH=$PATH:$HOME/go/bin
