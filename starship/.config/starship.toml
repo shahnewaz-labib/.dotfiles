@@ -1,0 +1,21 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+format = '$all'
+
+[aws]
+disabled = true
+symbol = ' '
+
+# [character]
+# error_symbol = '[❯](bold bright-red)'
+# success_symbol = '[❯](bold bright-green)'
+# vimcmd_symbol = '[❮](bold bright-green)'
+
+[directory]
+format = '[$read_only](red)[$path](bold bright-cyan) '
+read_only = ' '
+truncation_symbol = '…/'
+
+[line_break]
+disabled = false
