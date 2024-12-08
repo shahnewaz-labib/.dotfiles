@@ -129,7 +129,7 @@ alias v="nvim"
 alias nvconf="nvim ~/.config/nvim"
 alias t="tmux"
 alias py="python"
-alias ls="eza --icons=always"
+alias ls="eza"
 
 eval "$(starship init zsh)"
 
