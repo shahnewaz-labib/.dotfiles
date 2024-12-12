@@ -13,10 +13,11 @@ require('lazy').setup({
   },
   'github/copilot.vim',
 
+  { 'MunifTanjim/nougat.nvim' },
+
   require 'custom.autocompletion',
   require 'custom.autoformat',
   require 'custom.autopairs',
-  -- require 'custom.chatgpt',
   require 'custom.colorscheme',
   require 'custom.debug',
   require 'custom.gitsigns',
@@ -50,6 +51,8 @@ require('lazy').setup({
   },
 })
 
+require 'custom.statusline'
+
 -- Don't move harpoon from here
 local harpoon = require 'harpoon'
 harpoon:setup()
@@ -75,9 +78,9 @@ end)
 -- end)
 
 -- Toggle previous & next buffers stored within Harpoon list
-vim.keymap.set('n', '<C-S-P>', function()
-  harpoon:list():prev()
-end)
-vim.keymap.set('n', '<C-S-N>', function()
-  harpoon:list():next()
-end)
+-- vim.keymap.set('n', '<C-S-P>', function()
+--   harpoon:list():prev()
+-- end)
+-- vim.keymap.set('n', '<C-S-N>', function()
+--   harpoon:list():next()
+-- end)
