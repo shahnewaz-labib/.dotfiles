@@ -1,11 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export PATH=$HOME/.local/bin:$PATH
-# export PATH=$HOME/.cargo/bin:$PATH
-# export PATH=$HOME/.scripts/:$PATH
-# export PATH=/opt/flutter/bin:$PATH
-# export PATH=$HOME/go/bin/:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
@@ -36,9 +28,6 @@ ZSH_THEME="robbyrussell"
 # zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -81,10 +70,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 
-
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -97,18 +83,6 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias g="git"
 alias gs="git status"
@@ -131,7 +105,11 @@ alias t="tmux"
 alias py="python"
 alias ls="eza"
 
+alias zshconf="nvim ~/.zshrc"
+
 eval "$(starship init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -139,14 +117,20 @@ eval "$(starship init zsh)"
 
 export COMPOSE_DOCKER_CLI_BUILD=1
 
-eval "$(zoxide init --cmd cd zsh)"
-
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+eval "$(pyenv init - zsh)"
 
 # Hishtory Config:
-export PATH="$PATH:/Users/md.shahnewaz.siddique/.hishtory"
-source /Users/md.shahnewaz.siddique/.hishtory/config.zsh
-export PATH=$PATH:$HOME/go/bin
-. "/Users/md.shahnewaz.siddique/.deno/env"
+# export PATH="$PATH:/Users/md.shahnewaz.siddique/.hishtory"
+# source /Users/md.shahnewaz.siddique/.hishtory/config.zsh
+# export PATH=$PATH:$HOME/go/bin
+# . "/Users/md.shahnewaz.siddique/.deno/env"
+
+# bun completions
+
+# [ -s "/Users/md.shahnewaz.siddique/.bun/_bun" ] && source "/Users/md.shahnewaz.siddique/.bun/_bun"
+
+# bun
+# export BUN_INSTALL="$HOME/.bun"
+# export PATH="$BUN_INSTALL/bin:$PATH"
