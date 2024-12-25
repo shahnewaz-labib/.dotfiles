@@ -211,6 +211,10 @@ stl_inactive:add_item(nut.spacer())
 stl_inactive:add_item(ruler)
 stl_inactive:add_item(sep.space())
 
+local empty_stl = Bar 'statusline'
+
+nougat.set_statusline(empty_stl, { filetype = 'neo-tree' })
+
 nougat.set_statusline(function(ctx)
   return ctx.is_focused and stl or stl_inactive
 end)

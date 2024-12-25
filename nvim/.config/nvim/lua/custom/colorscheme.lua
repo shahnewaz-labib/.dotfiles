@@ -17,6 +17,12 @@ return {
       vim.cmd.hi 'Comment gui=none'
     end,
   },
+  {
+    'rebelot/kanagawa.nvim',
+    -- init = function()
+    --   vim.cmd.colorscheme 'kanagawa'
+    -- end,
+  },
   { 'luisiacc/gruvbox-baby' },
   { 'sainnhe/gruvbox-material' },
   { 'morhetz/gruvbox' },

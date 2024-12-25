@@ -12,4 +12,10 @@ config.window_padding = {
 	bottom = 0,
 }
 
+config.colors = {
+	cursor_bg = "#73fa91",
+	cursor_border = "#73fa91",
+	cursor_fg = "#0f1610",
+}
+
 return config
