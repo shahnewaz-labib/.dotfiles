@@ -22,17 +22,11 @@ require('lazy').setup({
       require('peek').setup {
         auto_load = true, -- whether to automatically load preview when entering another markdown buffer
         close_on_bdelete = true, -- close preview window on buffer delete
-
         syntax = true, -- enable syntax highlighting, affects performance
-
         theme = 'dark', -- 'dark' or 'light'
-
         update_on_change = true,
-
         app = 'browser', -- 'webview', 'browser', string or a table of strings
-
         filetype = { 'markdown' }, -- list of filetypes to recognize as markdown
-
         -- relevant if update_on_change is true
         throttle_at = 200000, -- start throttling when file exceeds this
         -- amount of bytes in size
@@ -53,7 +47,7 @@ require('lazy').setup({
   require 'custom.gitsigns',
   require 'custom.gitsigns',
   require 'custom.harpoon',
-  require 'custom.indent_line',
+  require 'custom.indentline',
   require 'custom.lint',
   require 'custom.lsp',
   require 'custom.misc',
@@ -83,35 +77,3 @@ require('lazy').setup({
 
 require 'custom.statusline'
 require 'config.autocommands'
-
--- Don't move harpoon from here
-local harpoon = require 'harpoon'
-harpoon:setup()
-
-vim.keymap.set('n', '<leader>a', function()
-  harpoon:list():append()
-end)
-vim.keymap.set('n', '<C-e>', function()
-  harpoon.ui:toggle_quick_menu(harpoon:list())
-end)
-
--- vim.keymap.set('n', '<C-t>', function()
---   harpoon:list():select(1)
--- end)
--- vim.keymap.set('n', '<C-h>', function()
---   harpoon:list():select(2)
--- end)
--- vim.keymap.set('n', '<C-n>', function()
---   harpoon:list():select(3)
--- end)
--- vim.keymap.set('n', '<C-s>', function()
---   harpoon:list():select(4)
--- end)
-
--- Toggle previous & next buffers stored within Harpoon list
--- vim.keymap.set('n', '<C-S-P>', function()
---   harpoon:list():prev()
--- end)
--- vim.keymap.set('n', '<C-S-N>', function()
---   harpoon:list():next()
--- end)
