@@ -4,7 +4,7 @@ local config = {}
 config.color_scheme = "tokyonight_night"
 
 config.font = wezterm.font("JetBrainsMono NF")
-config.font_size = 16
+config.font_size = 17
 
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
