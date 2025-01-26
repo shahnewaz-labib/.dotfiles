@@ -23,7 +23,6 @@ return {
     --   vim.cmd.colorscheme 'kanagawa'
     -- end,
   },
-  { 'luisiacc/gruvbox-baby' },
   { 'sainnhe/gruvbox-material' },
   { 'morhetz/gruvbox' },
   { 'ellisonleao/gruvbox.nvim' },

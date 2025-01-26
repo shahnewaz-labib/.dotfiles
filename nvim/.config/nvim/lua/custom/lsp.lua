@@ -117,18 +117,18 @@ return {
           end
 
           -- Add an autocmd for buffer save to trigger the organize imports action
-          vim.api.nvim_create_autocmd('BufWritePre', {
-            group = vim.api.nvim_create_augroup('organize_imports_on_save', { clear = true }),
-            -- pattern = {'*.go', '*.lua', '*.ts'},  -- Add more file patterns here
-            pattern = '*.go',
-            callback = function()
-              -- Trigger organize imports action before save
-              vim.lsp.buf.code_action {
-                context = { only = { 'source.organizeImports' }, diagnostics = {} },
-                apply = true,
-              }
-            end,
-          })
+          -- vim.api.nvim_create_autocmd('BufWritePre', {
+          --   group = vim.api.nvim_create_augroup('organize_imports_on_save', { clear = true }),
+          --   -- pattern = {'*.go', '*.lua', '*.ts'},  -- Add more file patterns here
+          --   pattern = '*.go',
+          --   callback = function()
+          --     -- Trigger organize imports action before save
+          --     vim.lsp.buf.code_action {
+          --       context = { only = { 'source.organizeImports' }, diagnostics = {} },
+          --       apply = true,
+          --     }
+          --   end,
+          -- })
 
           -- The following code creates a keymap to toggle inlay hints in your
           -- code, if the language server you are using supports them

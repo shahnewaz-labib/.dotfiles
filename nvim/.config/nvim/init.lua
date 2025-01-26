@@ -1,6 +1,6 @@
 require 'custom'
-require 'custom.options'
-require 'custom.keymaps'
+require 'config.options'
+require 'config.keymaps'
 
 require('lazy').setup({
   'tpope/vim-sleuth',
@@ -82,7 +82,7 @@ require('lazy').setup({
 })
 
 require 'custom.statusline'
-require 'custom.autocommands'
+require 'config.autocommands'
 
 -- Don't move harpoon from here
 local harpoon = require 'harpoon'
