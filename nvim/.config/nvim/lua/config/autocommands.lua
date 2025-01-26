@@ -28,9 +28,8 @@ vim.notify = function(msg, ...)
   notify(msg, ...)
 end
 
-local peek = require 'peek'
-
 vim.api.nvim_create_user_command('PeekOpen', function()
+  local peek = require 'peek'
   if not peek.is_open() and vim.bo[vim.api.nvim_get_current_buf()].filetype == 'markdown' then
     vim.fn.system 'i3-msg split horizontal'
     peek.open()
@@ -38,6 +37,7 @@ vim.api.nvim_create_user_command('PeekOpen', function()
 end, {})
 
 vim.api.nvim_create_user_command('PeekClose', function()
+  local peek = require 'peek'
   if peek.is_open() then
     peek.close()
     vim.fn.system 'i3-msg move left'
@@ -45,8 +45,9 @@ vim.api.nvim_create_user_command('PeekClose', function()
 end, {})
 
 -- resize splits if window got resized
+vim.api.nvim_create_augroup('resize-splits', {})
 vim.api.nvim_create_autocmd({ 'VimResized' }, {
-  -- group = augroup 'resize_splits',
+  group = 'resize-splits',
   callback = function()
     local current_tab = vim.fn.tabpagenr()
     vim.cmd 'tabdo wincmd ='
