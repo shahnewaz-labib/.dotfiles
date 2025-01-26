@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local config = {}
 
 config.color_scheme = "tokyonight_night"
-config.font_size = 12.0
+config.font_size = 17
 
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
