@@ -5,16 +5,11 @@ return {
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'folke/tokyonight.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
+    priority = 1000,
     opts = { style = 'moon' },
     init = function()
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
-
-      -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+      -- vim.cmd.colorscheme 'tokyonight-night'
+      -- vim.cmd.hi 'Comment gui=none'
     end,
   },
   {
@@ -26,4 +21,29 @@ return {
   { 'sainnhe/gruvbox-material' },
   { 'morhetz/gruvbox' },
   { 'ellisonleao/gruvbox.nvim' },
+  {
+    'dgox16/oldworld.nvim',
+    lazy = false,
+    priority = 1000,
+    styley = {
+      booleans = { italic = true, bold = true },
+    },
+    init = function()
+      vim.cmd.colorscheme 'oldworld'
+      vim.cmd.hi 'Comment gui=none'
+    end,
+  },
 }
+
+-- require("oldworld").setup({
+--     styles = {
+--         booleans = { italic = true, bold = true },
+--     },
+--     integrations = {
+--         hop = true,
+--         telescope = false,
+--     },
+--     highlight_overrides = {
+--         Comment = { bg = "#ff0000" }
+--     }
+-- })

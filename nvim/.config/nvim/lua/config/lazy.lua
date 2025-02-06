@@ -11,7 +11,6 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-
   require 'custom.ai.copilot',
 
   require 'custom.coding.autocompletion',
@@ -19,8 +18,9 @@ require('lazy').setup({
   require 'custom.coding.autoformat',
 
   require 'custom.git.gitsigns',
+  require 'custom.git.vim-flog',
 
-  require 'custom.autopairs',
+  require 'custom.coding.autopairs',
   require 'custom.debug',
 
   require 'custom.harpoon',

@@ -13,6 +13,7 @@ vim.api.nvim_create_autocmd('UiEnter', {
   callback = function()
     if vim.fn.argc() == 0 then
       vim.cmd 'Neotree toggle'
+      vim.cmd 'setlocal nonumber norelativenumber'
     end
   end,
 })
