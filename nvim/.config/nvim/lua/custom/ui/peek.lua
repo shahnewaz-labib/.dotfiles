@@ -7,7 +7,7 @@ return {
       auto_load = true, -- whether to automatically load preview when entering another markdown buffer
       close_on_bdelete = true, -- close preview window on buffer delete
       syntax = true, -- enable syntax highlighting, affects performance
-      theme = 'dark', -- 'dark' or 'light'
+      theme = 'light', -- 'dark' or 'light'
       update_on_change = true,
       app = 'browser', -- 'webview', 'browser', string or a table of strings
       filetype = { 'markdown' }, -- list of filetypes to recognize as markdown relevant if update_on_change is true

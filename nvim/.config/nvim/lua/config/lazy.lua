@@ -18,6 +18,7 @@ require('lazy').setup({
   require 'custom.coding.autoformat',
 
   require 'custom.git.gitsigns',
+  require 'custom.git.lazygit',
   require 'custom.git.vim-flog',
 
   require 'custom.coding.autopairs',

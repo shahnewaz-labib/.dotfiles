@@ -214,7 +214,7 @@ return {
         -- 'clangd',
         'delve',
         -- 'gopls',
-        -- 'hadolint',
+        'hadolint',
         'lua-language-server',
         'markdownlint',
         -- 'prisma-language-server',

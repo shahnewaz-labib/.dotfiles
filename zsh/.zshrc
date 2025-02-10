@@ -121,16 +121,18 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
 
-# Hishtory Config:
-# export PATH="$PATH:/Users/md.shahnewaz.siddique/.hishtory"
-# source /Users/md.shahnewaz.siddique/.hishtory/config.zsh
-# export PATH=$PATH:$HOME/go/bin
-# . "/Users/md.shahnewaz.siddique/.deno/env"
-
 # bun completions
-
 # [ -s "/Users/md.shahnewaz.siddique/.bun/_bun" ] && source "/Users/md.shahnewaz.siddique/.bun/_bun"
 
 # bun
 # export BUN_INSTALL="$HOME/.bun"
 # export PATH="$BUN_INSTALL/bin:$PATH"
+
+_nc_docker_completion() {
+    COMPREPLY=( $( env COMP_WORDS="${COMP_WORDS[*]}" \
+                COMP_CWORD=$COMP_CWORD \
+                _NC_DOCKER_COMPLETE=complete $1 ) )
+    return 0
+}
+
+complete -F _nc_docker_completion -o default nc-docker
