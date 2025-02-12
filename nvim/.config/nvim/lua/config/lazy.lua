@@ -14,8 +14,9 @@ require('lazy').setup({
   require 'custom.ai.copilot',
 
   require 'custom.coding.autocompletion',
-  require 'custom.coding.todo',
   require 'custom.coding.autoformat',
+  require 'custom.coding.leap',
+  require 'custom.coding.todo',
 
   require 'custom.git.gitsigns',
   require 'custom.git.lazygit',
