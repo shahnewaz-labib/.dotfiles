@@ -18,6 +18,7 @@ return {
       },
       window = {
         width = 30,
+        position = "right",
       },
       filtered_items = {
         visible = true,
