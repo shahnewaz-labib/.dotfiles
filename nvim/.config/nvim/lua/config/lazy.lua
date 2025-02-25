@@ -20,6 +20,7 @@ require('lazy').setup({
 
   require 'custom.git.gitsigns',
   require 'custom.git.lazygit',
+  require 'custom.git.nvim-pr',
   require 'custom.git.vim-flog',
 
   require 'custom.coding.autopairs',

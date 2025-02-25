@@ -105,6 +105,10 @@ alias t="tmux"
 alias py="python"
 alias ls="eza"
 
+# optimizely
+alias ncd="nc-docker"
+alias ncdu="nc-docker up"
+
 alias zshconf="nvim ~/.zshrc"
 
 eval "$(starship init zsh)"
@@ -136,3 +140,5 @@ _nc_docker_completion() {
 }
 
 complete -F _nc_docker_completion -o default nc-docker
+
+. "$HOME/.local/bin/env"
