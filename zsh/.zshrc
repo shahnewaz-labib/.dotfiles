@@ -104,10 +104,12 @@ alias nvconf="nvim ~/.config/nvim"
 alias t="tmux"
 alias py="python"
 alias ls="eza"
+alias cat="bat -pp"
 
 # optimizely
 alias ncd="nc-docker"
 alias ncdu="nc-docker up"
+alias pal="pyenv activate localdev"
 
 alias zshconf="nvim ~/.zshrc"
 
