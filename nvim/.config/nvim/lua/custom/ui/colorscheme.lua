@@ -8,8 +8,8 @@ return {
     priority = 1000,
     opts = { style = 'moon' },
     init = function()
-      -- vim.cmd.colorscheme 'tokyonight-night'
-      -- vim.cmd.hi 'Comment gui=none'
+      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.hi 'Comment gui=none'
     end,
   },
   {
@@ -29,21 +29,8 @@ return {
       booleans = { italic = true, bold = true },
     },
     init = function()
-      vim.cmd.colorscheme 'oldworld'
-      vim.cmd.hi 'Comment gui=none'
+      -- vim.cmd.colorscheme 'oldworld'
+      -- vim.cmd.hi 'Comment gui=none'
     end,
   },
 }
-
--- require("oldworld").setup({
---     styles = {
---         booleans = { italic = true, bold = true },
---     },
---     integrations = {
---         hop = true,
---         telescope = false,
---     },
---     highlight_overrides = {
---         Comment = { bg = "#ff0000" }
---     }
--- })

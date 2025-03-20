@@ -88,7 +88,7 @@ vim.keymap.set('x', '<leader>p', [["_dP]])
 -- next greatest remap ever : asbjornHaland
 -- copying
 vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
-vim.keymap.set('n', '<leader>Y', [[gg"+yG'']])
+vim.keymap.set('n', '<leader>Y', [[gg"+yG'']], { desc = 'Yank whole file' })
 
 vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 

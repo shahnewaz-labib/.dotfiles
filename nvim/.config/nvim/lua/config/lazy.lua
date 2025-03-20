@@ -18,6 +18,7 @@ require('lazy').setup({
   require 'custom.coding.leap',
   require 'custom.coding.todo',
 
+  require 'custom.git.git-remote-line',
   require 'custom.git.gitsigns',
   require 'custom.git.lazygit',
   require 'custom.git.nvim-pr',
