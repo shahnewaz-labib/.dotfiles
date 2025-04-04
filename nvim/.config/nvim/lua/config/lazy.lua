@@ -12,6 +12,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   require 'custom.ai.copilot',
+  require 'custom.ai.copilot-chat',
 
   require 'custom.coding.autocompletion',
   require 'custom.coding.autoformat',
