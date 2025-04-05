@@ -85,7 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 alias g="git"
-alias gs="git status"
+alias gs="git status --short"
 alias ip="ip --color=auto"
 alias vcp="cd ~/codes/cp/ && nvim -S ~/codes/cp/cp"
 alias k="kubectl"
