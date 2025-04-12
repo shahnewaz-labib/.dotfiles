@@ -8,8 +8,8 @@ return {
     priority = 1000,
     opts = { style = 'moon' },
     init = function()
-      vim.cmd.colorscheme 'tokyonight-night'
-      vim.cmd.hi 'Comment gui=none'
+      -- vim.cmd.colorscheme 'tokyonight-night'
+      -- vim.cmd.hi 'Comment gui=none'
     end,
   },
   {
@@ -20,7 +20,15 @@ return {
   },
   { 'sainnhe/gruvbox-material' },
   { 'morhetz/gruvbox' },
-  { 'ellisonleao/gruvbox.nvim' },
+  {
+    'ellisonleao/gruvbox.nvim',
+    priority = 1000,
+    init = function()
+      vim.cmd.colorscheme 'gruvbox'
+      vim.cmd.hi 'Comment gui=none'
+      vim.api.nvim_set_hl(0, "SignColumn", { bg = "none"})
+    end,
+  },
   {
     'dgox16/oldworld.nvim',
     lazy = false,

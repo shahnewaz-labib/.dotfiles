@@ -1,9 +1,10 @@
 local wezterm = require("wezterm")
 local config = {}
 
-config.color_scheme = "tokyonight_night"
+-- config.color_scheme = "tokyonight_night"
 config.font = wezterm.font("JetBrainsMono NF")
-config.font_size = 17
+-- config.font = wezterm.font("Menlo")
+config.font_size = 19
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.window_padding = {
@@ -57,10 +58,12 @@ local custom_colors = {
 
 -- Merge the custom colors into config.colors,
 -- preserving any keys already set (like cursor colors)
-for key, value in pairs(custom_colors) do
-  if config.colors[key] == nil then
-    config.colors[key] = value
-  end
-end
+-- for key, value in pairs(custom_colors) do
+--   if config.colors[key] == nil then
+--     config.colors[key] = value
+--   end
+-- end
+
+config.color_scheme = "GruvboxDark"
 
 return config
