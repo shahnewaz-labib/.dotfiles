@@ -14,6 +14,12 @@ vim.opt.shiftwidth = 2
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 
+-- automatically reload file if changed on disk
+-- i should find something better
+vim.opt.autoread = true
+vim.cmd("set autoread")
+vim.cmd("autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif")
+
 -- block cursors everywhere
 vim.opt.guicursor = 'n-v-c-sm:block,i-ci-ve:block,r-cr-o:block'
 
