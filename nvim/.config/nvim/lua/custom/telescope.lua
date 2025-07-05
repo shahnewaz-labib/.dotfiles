@@ -50,9 +50,13 @@ return {
         --   },
         -- },
         pickers = {
+          find_files = {
+            hidden = true
+          },
           colorscheme = {
             enable_preview = true,
           },
+          file_ignore_patterns = { "^./.git/", "^node_modules/" }
         },
         extensions = {
           ['ui-select'] = {

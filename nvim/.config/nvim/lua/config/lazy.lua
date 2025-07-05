@@ -21,9 +21,9 @@ require('lazy').setup({
 
   require 'custom.git.git-remote-line',
   require 'custom.git.gitsigns',
-  require 'custom.git.lazygit',
+  -- require 'custom.git.lazygit',
   require 'custom.git.nvim-pr',
-  require 'custom.git.vim-flog',
+  require 'custom.git.vim-fugitive',
 
   require 'custom.coding.autopairs',
   require 'custom.debug',

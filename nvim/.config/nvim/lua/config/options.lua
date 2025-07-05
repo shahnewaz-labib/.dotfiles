@@ -21,7 +21,7 @@ vim.cmd("set autoread")
 vim.cmd("autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif")
 
 -- block cursors everywhere
-vim.opt.guicursor = 'n-v-c-sm:block,i-ci-ve:block,r-cr-o:block'
+-- vim.opt.guicursor = 'n-v-c-sm:block,i-ci-ve:block,r-cr-o:block'
 
 -- Make line numbers default
 vim.opt.number = true
