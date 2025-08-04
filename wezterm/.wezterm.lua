@@ -11,6 +11,9 @@ config.window_padding = {
   bottom = 0,
 }
 
+config.default_cursor_style = "SteadyBar"
+config.cursor_blink_rate = 800
+
 -- overridden colors
 config.colors = {
   cursor_bg = "#73fa91",

@@ -1,3 +1,4 @@
+# zmodload zsh/zprof
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
@@ -45,7 +46,7 @@ ZSH_THEME="robbyrussell"
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -72,50 +73,21 @@ plugins=(fzf zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 alias g="git"
 alias gs="git status --short"
-alias ip="ip --color=auto"
-alias vcp="cd ~/codes/cp/ && nvim -S ~/codes/cp/cp"
-alias k="kubectl"
-alias kgp="kubectl get pods"
-alias ka="kubectl apply"
-alias kubectl="kubecolor"
-alias mkdir="mkdir -p"
-alias ka="killall"
-alias kaq="killall qbittorrent"
-alias kab="killall brave"
-alias copyfile="xclip -sel clip <"
-alias showip="curl -s https://api.ipify.org"
-alias setupconda="source /opt/miniconda3/etc/profile.d/conda.sh"
-alias v="nvim"
-alias nvconf="nvim ~/.config/nvim"
 alias t="tmux"
-alias py="python"
 alias ls="eza"
 alias cat="bat -pp"
+alias v="nvim"
 
 # optimizely
 alias ncd="nc-docker"
 alias ncdu="nc-docker up"
 alias pal="pyenv activate localdev"
 
-alias zshconf="nvim ~/.zshrc"
-
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(fnm env --use-on-cd --shell zsh)"
+eval "$(fnm env --shell zsh)"
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -127,12 +99,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
 
-# bun completions
-# [ -s "/Users/md.shahnewaz.siddique/.bun/_bun" ] && source "/Users/md.shahnewaz.siddique/.bun/_bun"
-
-# bun
-# export BUN_INSTALL="$HOME/.bun"
-# export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 
 _nc_docker_completion() {
     COMPREPLY=( $( env COMP_WORDS="${COMP_WORDS[*]}" \
@@ -144,3 +111,44 @@ _nc_docker_completion() {
 complete -F _nc_docker_completion -o default nc-docker
 
 . "$HOME/.local/bin/env"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+# fpath=(/Users/md.shahnewaz.siddique/.docker/completions $fpath)
+# autoload -Uz compinit
+# compinit
+# End of Docker CLI completions
+
+# zprof
+#
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-"${HOME}/.cache"}"
+
+#shellcheck shell=sh
+
+if ! test -f "${XDG_CACHE_HOME}/newscred_aws_codeartifact_auth_token" || test -z "$(find "${XDG_CACHE_HOME}/newscred_aws_codeartifact_auth_token" -mmin -$(( 10 * 60 )))"; then
+  if ! aws sts get-caller-identity --query "Account" >/dev/null 2>&1; then
+    aws sso login
+  fi
+
+  AWS_CODEARTIFACT_AUTH_TOKEN="$(aws codeartifact get-authorization-token \
+    --duration-seconds "$(( 8 * 60 * 60 ))" \
+    --domain "newscred" \
+    --domain-owner "304160530156" \
+    --query authorizationToken \
+    --output text)"
+
+  if test -n "${AWS_CODEARTIFACT_AUTH_TOKEN}"; then
+    echo "${AWS_CODEARTIFACT_AUTH_TOKEN}" > "${XDG_CACHE_HOME}/newscred_aws_codeartifact_auth_token"
+  fi
+fi
+
+export AWS_CODEARTIFACT_AUTH_TOKEN=$(cat "${XDG_CACHE_HOME}/newscred_aws_codeartifact_auth_token")
+
+# nncd
+# Completion function for nncd using completions from nc-docker
+_nncd_completion() {
+    local completions
+    completions=$(~/nncd --complete "${words[@]:1}")
+    compadd -- $completions
+}
+
+# Register the completion function for nncd
+compdef _nncd_completion nncd
