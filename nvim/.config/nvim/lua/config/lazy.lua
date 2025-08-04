@@ -35,6 +35,7 @@ require('lazy').setup({
   require 'custom.misc',
   require 'custom.neotree',
   require 'custom.telescope',
+  require 'custom.tmux',
   require 'custom.treesitter',
 
   require 'custom.ui.nougat',
