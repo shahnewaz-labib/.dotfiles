@@ -117,6 +117,14 @@ return {
         end,
       })
 
+      vim.diagnostic.config {
+        float = { border = 'rounded' },
+      }
+
+      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+        border = 'rounded',
+      })
+
       -- Change diagnostic symbols in the sign column (gutter)
       if vim.g.have_nerd_font then
         local signs = { Error = '', Warn = '', Hint = '', Info = '' }

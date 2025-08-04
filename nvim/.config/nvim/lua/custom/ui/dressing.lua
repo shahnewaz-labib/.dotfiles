@@ -5,6 +5,7 @@ return {
       input = {
         win_options = {
           winhighlight = 'NormalFloat:DiagnosticError',
+          border = 'rounded',
         },
       },
     }
