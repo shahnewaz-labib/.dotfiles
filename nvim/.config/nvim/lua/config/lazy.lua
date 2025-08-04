@@ -37,6 +37,7 @@ require('lazy').setup({
   require 'custom.telescope',
   require 'custom.tmux',
   require 'custom.treesitter',
+  require 'custom.vim-surround',
 
   require 'custom.ui.nougat',
   require 'custom.ui.colorscheme',
