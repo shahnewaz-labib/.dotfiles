@@ -80,6 +80,16 @@ alias ls="eza"
 alias cat="bat -pp"
 alias v="nvim"
 
+alias z='selected_path=$(zoxide query -l | fzf); \
+[ -n "$selected_path" ] && \
+win_name=$(basename "$selected_path"); \
+win_idx=$(tmux list-windows -F "#{window_index}:#{window_name}" | grep -E "^([0-9]+):$win_name$" | grep -o "^[0-9]\+"); \
+if [ -n "$win_idx" ]; then \
+  tmux select-window -t "$win_idx"; \
+else \
+  tmux new-window -c "$selected_path" -n "$win_name"; \
+fi'
+
 # optimizely
 alias ncd="nc-docker"
 alias ncdu="nc-docker up"
