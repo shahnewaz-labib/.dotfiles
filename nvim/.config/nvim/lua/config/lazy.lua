@@ -26,7 +26,6 @@ require('lazy').setup({
   require 'custom.git.vim-fugitive',
 
   require 'custom.coding.autopairs',
-  require 'custom.debug',
 
   require 'custom.harpoon',
   require 'custom.indentline',
